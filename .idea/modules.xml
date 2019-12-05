@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/country_list_pick.iml" filepath="$PROJECT_DIR$/country_list_pick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/country_list_pick_android.iml" filepath="$PROJECT_DIR$/android/country_list_pick_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/country_list_pick_example_android.iml" filepath="$PROJECT_DIR$/example/android/country_list_pick_example_android.iml" />
+    </modules>
+  </component>
+</project>
