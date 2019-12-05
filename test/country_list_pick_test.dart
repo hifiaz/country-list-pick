@@ -15,8 +15,4 @@ void main() {
   tearDown(() {
     channel.setMockMethodCallHandler(null);
   });
-
-  // test('getPlatformVersion', () async {
-  //   expect(await CountryListPick.platformVersion, '42');
-  // });
 }
