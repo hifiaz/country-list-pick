@@ -1,4 +1,3 @@
-
 mixin ToAlias {}
 
 @deprecated
