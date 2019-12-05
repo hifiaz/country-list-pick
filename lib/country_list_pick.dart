@@ -63,8 +63,8 @@ class _CountryListPickState extends State<CountryListPick> {
         ));
 
     setState(() {
-      selectedItem = result;
-      widget.onChanged(result);
+      selectedItem = result ?? selectedItem;
+      widget.onChanged(result ?? selectedItem);
     });
   }
 

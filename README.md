@@ -1,12 +1,10 @@
 # country list pick
 
-[![Build Status](https://travis-ci.org/hifiaz/country-list-pick.svg?branch=master)](https://travis-ci.org/hifiaz/country-list-pick/)
-
 Flutter plugin to pick country with output name, code, dialcode and flag of country
 
-# fancy_alert_dialog
-
-Plugin to create native dialog fancy for iOS and Android
+<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/screenrecord.gif" width="240"/>
+<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_01.png" width="240"/>
+<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_02.png" width="240"/>
 
 ## Usage
 
@@ -16,7 +14,7 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
     CountryListPick(
         // to show or hide flag
         isShowFlag: true,
-        // to show or hide title country
+        // true to show  title country or false to code phone country
         isShowTitle: true,
         // to show or hide down icon
         isDownIcon: true,
@@ -86,4 +84,4 @@ class _MyAppState extends State<MyApp> {
 
 ### Special Thanks
 
-- Salvatore Giordano, CountryCodePicker [![CountryCodePicker](https://github.com/imtoori/CountryCodePicker)
+- Salvatore Giordano, CountryCodePicker [CountryCodePicker](https://github.com/imtoori/CountryCodePicker)
