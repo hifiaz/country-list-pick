@@ -12,7 +12,6 @@ class CountryListPick extends StatefulWidget {
       this.isDownIcon,
       this.isShowTitle,
       this.initialSelection});
-  // this initital option to show in widget
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isDownIcon;
