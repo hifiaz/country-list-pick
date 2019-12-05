@@ -1,7 +1,6 @@
 name: country_list_pick
 description: Flutter plugin project to pick country code.
 version: 0.0.1
-author: hifiaz <fiazhari@gmail.com>
 homepage: https://github.com/hifiaz/country-list-pick
 
 environment:
