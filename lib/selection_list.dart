@@ -17,6 +17,9 @@ class SelectionList extends StatefulWidget {
 
 class _SelectionListState extends State<SelectionList> {
   List<CountryCode> countries;
+  final TextEditingController _controller = TextEditingController();
+
+  Icon icon = Icon(Icons.search);
 
   @override
   void initState() {
@@ -32,12 +35,38 @@ class _SelectionListState extends State<SelectionList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.close),
-          onPressed: () => Navigator.of(context).pop(null),
-        ),
-        title: Text('Select Country'),
+        title: appBarTitle,
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: icon,
+            onPressed: () {
+              setState(() {
+                if (this.icon.icon == Icons.search) {
+                  this.icon = Icon(
+                    Icons.close,
+                    color: Theme.of(context).secondaryHeaderColor,
+                  );
+                  this.appBarTitle = TextField(
+                    controller: _controller,
+                    style: TextStyle(
+                      color: Theme.of(context).secondaryHeaderColor,
+                    ),
+                    decoration: InputDecoration.collapsed(
+                        hintText: "Search...",
+                        hintStyle: TextStyle(
+                          color: Theme.of(context).secondaryHeaderColor,
+                        )),
+                    onChanged: _filterElements,
+                  );
+                  // _handleSearchStart();
+                } else {
+                  _handleSearchEnd();
+                }
+              });
+            },
+          )
+        ],
       ),
       body: Container(
         color: Color(0xfff4f4f4),
@@ -78,15 +107,36 @@ class _SelectionListState extends State<SelectionList> {
           package: 'country_list_pick',
           width: 30.0,
         ),
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[Text(e.name), Divider()],
-        ),
+        title: Text(e.name),
         onTap: () {
           _sendDataBack(context, e);
         },
       ),
     );
+  }
+
+  Widget appBarTitle = Text("Select Country");
+
+  void _handleSearchEnd() {
+    setState(() {
+      this.icon = Icon(
+        Icons.search,
+        color: Theme.of(context).secondaryHeaderColor,
+      );
+      this.appBarTitle = Text("Select Country");
+      _controller.clear();
+    });
+  }
+
+  void _filterElements(String s) {
+    s = s.toUpperCase();
+    setState(() {
+      countries = widget.elements
+          .where((e) =>
+              e.code.contains(s) ||
+              e.dialCode.contains(s) ||
+              e.name.toUpperCase().contains(s))
+          .toList();
+    });
   }
 }
