@@ -26,6 +26,7 @@ class _MyAppState extends State<MyApp> {
           child: CountryListPick(
             isShowFlag: true,
             isShowTitle: true,
+            isShowCode: false,
             isDownIcon: true,
             initialSelection: '+62',
             onChanged: (CountryCode code) {

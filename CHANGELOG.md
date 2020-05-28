@@ -1,3 +1,8 @@
+## 1.0.0+3
+
+- Improve check button and Search Position, Thanks @tomrozb
+- Add new param isShowCode, thanks @dev-fema 
+
 ## 1.0.0+2
 
 - add alpabet to jump specific country

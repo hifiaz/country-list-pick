@@ -17,8 +17,10 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
     CountryListPick(
         // to show or hide flag
         isShowFlag: true,
-        // true to show  title country or false to code phone country
+        // true to show  title country
         isShowTitle: true,
+        // true to show code phone country
+        isShowCode: true,
         // to show or hide down icon
         isDownIcon: true,
         // to initial code number countrey
@@ -69,6 +71,7 @@ class _MyAppState extends State<MyApp> {
           child: CountryListPick(
             isShowFlag: true,
             isShowTitle: true,
+            isShowCode: true,
             isDownIcon: true,
             initialSelection: '+62',
             onChanged: (CountryCode code) {
@@ -88,3 +91,4 @@ class _MyAppState extends State<MyApp> {
 ### Special Thanks
 
 - Salvatore Giordano, CountryCodePicker [CountryCodePicker](https://github.com/imtoori/CountryCodePicker)
+- @tomrozb and @dev-fema for changelog 1.0.0+3 

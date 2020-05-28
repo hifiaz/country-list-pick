@@ -10,10 +10,12 @@ class CountryListPick extends StatefulWidget {
       {this.onChanged,
       this.isShowFlag,
       this.isDownIcon,
+      this.isShowCode,
       this.isShowTitle,
       this.initialSelection});
   final bool isShowTitle;
   final bool isShowFlag;
+  final bool isShowCode;
   final bool isDownIcon;
   final String initialSelection;
   final ValueChanged<CountryCode> onChanged;
@@ -88,14 +90,20 @@ class _CountryListPickState extends State<CountryListPick> {
                 ),
               ),
             ),
-          Flexible(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5.0),
-              child: Text(widget.isShowTitle
-                  ? selectedItem.toCountryStringOnly()
-                  : selectedItem.toString()),
+          if (widget.isShowCode == true)
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(selectedItem.toString()),
+              ),
             ),
-          ),
+          if (widget.isShowTitle == true)
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(selectedItem.toCountryStringOnly()),
+              ),
+            ),
           if (widget.isDownIcon == true)
             Flexible(
               child: Icon(Icons.keyboard_arrow_down),

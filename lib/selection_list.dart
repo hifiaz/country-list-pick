@@ -32,8 +32,6 @@ class _SelectionListState extends State<SelectionList> {
 
   bool isShow = true;
 
-  Icon icon = Icon(Icons.search);
-
   @override
   void initState() {
     countries = widget.elements;
@@ -83,39 +81,8 @@ class _SelectionListState extends State<SelectionList> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: appBarTitle,
+        title: Text("Select Country"),
         centerTitle: true,
-        actions: <Widget>[
-          IconButton(
-            icon: icon,
-            onPressed: () {
-              setState(() {
-                isShow = true;
-                if (this.icon.icon == Icons.search) {
-                  isShow = false;
-                  this.icon = Icon(
-                    Icons.close,
-                    color: Theme.of(context).secondaryHeaderColor,
-                  );
-                  this.appBarTitle = TextField(
-                    controller: _controller,
-                    style: TextStyle(
-                      color: Theme.of(context).secondaryHeaderColor,
-                    ),
-                    decoration: InputDecoration.collapsed(
-                        hintText: "Search...",
-                        hintStyle: TextStyle(
-                          color: Theme.of(context).secondaryHeaderColor,
-                        )),
-                    onChanged: _filterElements,
-                  );
-                } else {
-                  _handleSearchEnd();
-                }
-              });
-            },
-          )
-        ],
       ),
       body: Container(
         color: Color(0xfff4f4f4),
@@ -130,6 +97,21 @@ class _SelectionListState extends State<SelectionList> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
+                    child: Text('SEARCH'),
+                  ),
+                  Container(
+                    color: Colors.white,
+                    padding: EdgeInsets.all(20.0),
+                    child: TextField(
+                      controller: _controller,
+                      decoration: InputDecoration.collapsed(
+                        hintText: "Search...",
+                      ),
+                      onChanged: _filterElements,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
                     child: Text('LAST PICK'),
                   ),
                   Container(
@@ -141,7 +123,10 @@ class _SelectionListState extends State<SelectionList> {
                         width: 32.0,
                       ),
                       title: Text(widget.initialSelection.name),
-                      trailing: Icon(Icons.check, color: Colors.green),
+                      trailing: Padding(
+                        padding: const EdgeInsets.only(right: 20.0),
+                        child: Icon(Icons.check, color: Colors.green),
+                      ),
                     ),
                   ),
                   SizedBox(height: 15),
@@ -195,8 +180,6 @@ class _SelectionListState extends State<SelectionList> {
     );
   }
 
-  Widget appBarTitle = Text("Select Country");
-
   _getAlphabetItem(int index) {
     return Expanded(
       child: InkWell(
@@ -240,16 +223,6 @@ class _SelectionListState extends State<SelectionList> {
     );
   }
 
-  void _handleSearchEnd() {
-    setState(() {
-      this.icon = Icon(
-        Icons.search,
-        color: Theme.of(context).secondaryHeaderColor,
-      );
-      this.appBarTitle = Text("Select Country");
-      _controller.clear();
-    });
-  }
 
   void _filterElements(String s) {
     s = s.toUpperCase();
