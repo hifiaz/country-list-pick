@@ -29,6 +29,7 @@ class _MyAppState extends State<MyApp> {
             isShowCode: false,
             isDownIcon: true,
             initialSelection: '+62',
+            showEnglishName: true,
             onChanged: (CountryCode code) {
               print(code.name);
               print(code.code);

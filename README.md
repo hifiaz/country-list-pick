@@ -23,6 +23,8 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         isShowCode: true,
         // to show or hide down icon
         isDownIcon: true,
+        // to show country in English
+        showEnglishName: true,
         // to initial code number countrey
         initialSelection: '+62',
         // to get feedback data from picker

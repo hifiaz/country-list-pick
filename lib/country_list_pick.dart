@@ -1,4 +1,5 @@
 import 'package:country_list_pick/selection_list.dart';
+import 'package:country_list_pick/support/code_countries_en.dart';
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:country_list_pick/support/code_countrys.dart';
 import 'package:flutter/material.dart';
@@ -12,17 +13,19 @@ class CountryListPick extends StatefulWidget {
       this.isDownIcon,
       this.isShowCode,
       this.isShowTitle,
-      this.initialSelection});
+      this.initialSelection,
+      this.showEnglishName});
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
   final bool isDownIcon;
   final String initialSelection;
+  final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
 
   @override
   _CountryListPickState createState() {
-    List<Map> jsonList = codes;
+    List<Map> jsonList = showEnglishName ? countriesEnglish : codes;
 
     List<CountryCode> elements = jsonList
         .map((s) => CountryCode(
