@@ -1,3 +1,6 @@
+## 1.0.0+5
+- Remove Spesific Platform
+
 ## 1.0.0+4
 - add english support for country list, Thanks @giaotuancse
   
