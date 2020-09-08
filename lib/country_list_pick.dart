@@ -77,6 +77,7 @@ class _CountryListPickState extends State<CountryListPick> {
   Widget build(BuildContext context) {
     return FlatButton(
       color: widget.buttonColor,
+      padding: EdgeInsets.symmetric(horizontal:0.0),
       onPressed: () {
         _awaitFromSelectScreen(context);
       },
