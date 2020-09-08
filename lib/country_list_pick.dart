@@ -14,7 +14,7 @@ class CountryListPick extends StatefulWidget {
       this.isShowCode,
       this.isShowTitle,
       this.initialSelection,
-      this.showEnglishName, this.backgroundColor});
+      this.showEnglishName, this.buttonColor});
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -22,7 +22,7 @@ class CountryListPick extends StatefulWidget {
   final String initialSelection;
   final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
-  final Color backgroundColor;
+  final Color buttonColor;
 
   @override
   _CountryListPickState createState() {
@@ -76,7 +76,7 @@ class _CountryListPickState extends State<CountryListPick> {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: widget.backgroundColor,
+      color: widget.buttonColor,
       onPressed: () {
         _awaitFromSelectScreen(context);
       },

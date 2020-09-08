@@ -27,8 +27,8 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         showEnglishName: true,
         // to initial code number country
         initialSelection: '+62',
-        // to change background color of the widget
-        backgroundColor:  Colors.transparent,
+        // to change button color of the widget
+        buttonColor:  Colors.transparent,
         // to get feedback data from picker
         onChanged: (CountryCode code) {
             // name of country

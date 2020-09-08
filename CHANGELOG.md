@@ -1,3 +1,6 @@
+## 1.0.0+6
+- Add button color
+  
 ## 1.0.0+5
 - Remove Spesific Platform
 
