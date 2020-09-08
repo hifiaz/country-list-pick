@@ -25,8 +25,10 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         isDownIcon: true,
         // to show country in English
         showEnglishName: true,
-        // to initial code number countrey
+        // to initial code number country
         initialSelection: '+62',
+        // to change background color of the widget
+        backgroundColor:  Colors.transparent,
         // to get feedback data from picker
         onChanged: (CountryCode code) {
             // name of country
@@ -76,6 +78,7 @@ class _MyAppState extends State<MyApp> {
             isShowCode: true,
             isDownIcon: true,
             initialSelection: '+62',
+            backgroundColor:  Colors.transparent,
             onChanged: (CountryCode code) {
               print(code.name);
               print(code.code);
