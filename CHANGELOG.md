@@ -1,3 +1,6 @@
+## 1.0.0+7
+- Remove padding around flag
+  
 ## 1.0.0+6
 - Add button color
   

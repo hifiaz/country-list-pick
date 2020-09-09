@@ -14,7 +14,8 @@ class CountryListPick extends StatefulWidget {
       this.isShowCode,
       this.isShowTitle,
       this.initialSelection,
-      this.showEnglishName, this.buttonColor});
+      this.showEnglishName,
+      this.buttonColor});
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;

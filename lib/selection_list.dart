@@ -223,7 +223,6 @@ class _SelectionListState extends State<SelectionList> {
     );
   }
 
-
   void _filterElements(String s) {
     s = s.toUpperCase();
     setState(() {
