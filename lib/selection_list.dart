@@ -109,8 +109,8 @@ class _SelectionListState extends State<SelectionList> {
                         enabledBorder: InputBorder.none,
                         errorBorder: InputBorder.none,
                         disabledBorder: InputBorder.none,
-                        contentPadding:
-                        EdgeInsets.only(left: 15, bottom: 0, top: 0, right: 15),
+                        contentPadding: EdgeInsets.only(
+                            left: 15, bottom: 0, top: 0, right: 15),
                         hintText: "Search...",
                       ),
                       onChanged: _filterElements,

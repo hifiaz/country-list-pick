@@ -98,4 +98,4 @@ class _MyAppState extends State<MyApp> {
 - Salvatore Giordano, CountryCodePicker [CountryCodePicker](https://github.com/imtoori/CountryCodePicker)
 - @tomrozb and @dev-fema for changelog 1.0.0+3
 - @giaotuancse for changelog 1.0.0+4
-- @joshuachinemezu
+- @joshuachinemezu for changelog 1.0.0+6 - 1.0.0+8
