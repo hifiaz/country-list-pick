@@ -101,10 +101,16 @@ class _SelectionListState extends State<SelectionList> {
                   ),
                   Container(
                     color: Colors.white,
-                    padding: EdgeInsets.all(20.0),
                     child: TextField(
                       controller: _controller,
-                      decoration: InputDecoration.collapsed(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        errorBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        contentPadding:
+                        EdgeInsets.only(left: 15, bottom: 0, top: 0, right: 15),
                         hintText: "Search...",
                       ),
                       onChanged: _filterElements,
