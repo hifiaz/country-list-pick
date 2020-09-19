@@ -1,3 +1,6 @@
+## 1.0.0+9
+- Appbar color, user can set ourself
+  
 ## 1.0.0+8
 - Remove padding around flag
   
