@@ -1,22 +1,25 @@
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/material.dart';
 
+
 class SelectionList extends StatefulWidget {
   SelectionList(
     this.elements,
     this.initialSelection, {
-    Key key,
+    Key key, this.appBarBackgroundColor,
   }) : super(key: key);
 
-  final List<CountryCode> elements;
+  final Color appBarBackgroundColor;
+  final List elements;
   final CountryCode initialSelection;
+
 
   @override
   _SelectionListState createState() => _SelectionListState();
 }
 
 class _SelectionListState extends State<SelectionList> {
-  List<CountryCode> countries;
+  List countries;
   final TextEditingController _controller = TextEditingController();
   ScrollController _controllerScroll;
   var diff = 0.0;
@@ -81,6 +84,7 @@ class _SelectionListState extends State<SelectionList> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: widget.appBarBackgroundColor,
         title: Text("Select Country"),
         centerTitle: true,
       ),
