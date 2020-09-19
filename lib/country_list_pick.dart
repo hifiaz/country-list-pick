@@ -15,7 +15,8 @@ class CountryListPick extends StatefulWidget {
       this.isShowTitle,
       this.initialSelection,
       this.showEnglishName,
-      this.buttonColor});
+      this.buttonColor,
+      this.appBarBackgroundColor,});
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -24,12 +25,13 @@ class CountryListPick extends StatefulWidget {
   final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
   final Color buttonColor;
+  final Color appBarBackgroundColor;
 
   @override
   _CountryListPickState createState() {
     List<Map> jsonList = showEnglishName ? countriesEnglish : codes;
 
-    List<CountryCode> elements = jsonList
+    List elements = jsonList
         .map((s) => CountryCode(
               name: s['name'],
               code: s['code'],
@@ -43,8 +45,9 @@ class CountryListPick extends StatefulWidget {
 
 class _CountryListPickState extends State<CountryListPick> {
   CountryCode selectedItem;
-  List<CountryCode> elements = [];
+  List elements = [];
   _CountryListPickState(this.elements);
+  //Color appBarBackgroundColor = widget.appBarBackgroundColor;
 
   @override
   void initState() {
@@ -61,12 +64,13 @@ class _CountryListPickState extends State<CountryListPick> {
     super.initState();
   }
 
-  void _awaitFromSelectScreen(BuildContext context) async {
+  void _awaitFromSelectScreen(BuildContext context, Color appBarBackgroundColor) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SelectionList(elements, selectedItem),
-        ));
+          builder: (context) => SelectionList(elements, selectedItem, appBarBackgroundColor: widget.appBarBackgroundColor,),
+        )
+    );
 
     setState(() {
       selectedItem = result ?? selectedItem;
@@ -80,7 +84,7 @@ class _CountryListPickState extends State<CountryListPick> {
       color: widget.buttonColor,
       padding: EdgeInsets.symmetric(horizontal: 0.0),
       onPressed: () {
-        _awaitFromSelectScreen(context);
+        _awaitFromSelectScreen(context, widget.appBarBackgroundColor);
       },
       child: Flex(
         direction: Axis.horizontal,
