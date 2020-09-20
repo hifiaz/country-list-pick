@@ -13,6 +13,7 @@ class CountryListPick extends StatefulWidget {
       this.isDownIcon,
       this.isShowCode,
       this.isShowTitle,
+      this.isShowLastPick,
       this.initialSelection,
       this.showEnglishName,
       this.buttonColor,
@@ -21,6 +22,7 @@ class CountryListPick extends StatefulWidget {
   final bool isShowFlag;
   final bool isShowCode;
   final bool isDownIcon;
+  final bool isShowLastPick;
   final String initialSelection;
   final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
@@ -68,7 +70,12 @@ class _CountryListPickState extends State<CountryListPick> {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SelectionList(elements, selectedItem, appBarBackgroundColor: widget.appBarBackgroundColor,),
+          builder: (context) => SelectionList(
+              elements,
+              selectedItem,
+              appBarBackgroundColor: widget.appBarBackgroundColor,
+              isShowLastPick: widget.isShowLastPick,
+          ),
         )
     );
 

@@ -6,13 +6,13 @@ class SelectionList extends StatefulWidget {
   SelectionList(
     this.elements,
     this.initialSelection, {
-    Key key, this.appBarBackgroundColor,
+    Key key, this.appBarBackgroundColor, this.isShowLastPick,
   }) : super(key: key);
 
   final Color appBarBackgroundColor;
   final List elements;
   final CountryCode initialSelection;
-
+  final bool isShowLastPick;
 
   @override
   _SelectionListState createState() => _SelectionListState();
@@ -120,25 +120,27 @@ class _SelectionListState extends State<SelectionList> {
                       onChanged: _filterElements,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Text('LAST PICK'),
-                  ),
-                  Container(
-                    color: Colors.white,
-                    child: ListTile(
-                      leading: Image.asset(
-                        widget.initialSelection.flagUri,
-                        package: 'country_list_pick',
-                        width: 32.0,
-                      ),
-                      title: Text(widget.initialSelection.name),
-                      trailing: Padding(
-                        padding: const EdgeInsets.only(right: 20.0),
-                        child: Icon(Icons.check, color: Colors.green),
+                  if (widget.isShowLastPick) ...[
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text('LAST PICK'),
+                    ),
+                    Container(
+                      color: Colors.white,
+                      child: ListTile(
+                        leading: Image.asset(
+                          widget.initialSelection.flagUri,
+                          package: 'country_list_pick',
+                          width: 32.0,
+                        ),
+                        title: Text(widget.initialSelection.name),
+                        trailing: Padding(
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: Icon(Icons.check, color: Colors.green),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                   SizedBox(height: 15),
                 ]..addAll(
                     countries.map(
