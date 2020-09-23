@@ -1,18 +1,17 @@
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/material.dart';
 
-
 class SelectionList extends StatefulWidget {
   SelectionList(
     this.elements,
     this.initialSelection, {
-    Key key, this.appBarBackgroundColor,
+    Key key,
+    this.appBarBackgroundColor,
   }) : super(key: key);
 
   final Color appBarBackgroundColor;
   final List elements;
   final CountryCode initialSelection;
-
 
   @override
   _SelectionListState createState() => _SelectionListState();

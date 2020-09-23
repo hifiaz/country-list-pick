@@ -7,16 +7,17 @@ import 'package:flutter/material.dart';
 export 'support/code_country.dart';
 
 class CountryListPick extends StatefulWidget {
-  CountryListPick(
-      {this.onChanged,
-      this.isShowFlag,
-      this.isDownIcon,
-      this.isShowCode,
-      this.isShowTitle,
-      this.initialSelection,
-      this.showEnglishName,
-      this.buttonColor,
-      this.appBarBackgroundColor,});
+  CountryListPick({
+    this.onChanged,
+    this.isShowFlag,
+    this.isDownIcon,
+    this.isShowCode,
+    this.isShowTitle,
+    this.initialSelection,
+    this.showEnglishName,
+    this.buttonColor,
+    this.appBarBackgroundColor,
+  });
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -64,13 +65,17 @@ class _CountryListPickState extends State<CountryListPick> {
     super.initState();
   }
 
-  void _awaitFromSelectScreen(BuildContext context, Color appBarBackgroundColor) async {
+  void _awaitFromSelectScreen(
+      BuildContext context, Color appBarBackgroundColor) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SelectionList(elements, selectedItem, appBarBackgroundColor: widget.appBarBackgroundColor,),
-        )
-    );
+          builder: (context) => SelectionList(
+            elements,
+            selectedItem,
+            appBarBackgroundColor: widget.appBarBackgroundColor,
+          ),
+        ));
 
     setState(() {
       selectedItem = result ?? selectedItem;

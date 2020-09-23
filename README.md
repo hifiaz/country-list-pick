@@ -100,3 +100,4 @@ class _MyAppState extends State<MyApp> {
 - @giaotuancse for changelog 1.0.0+4
 - @joshuachinemezu for changelog 1.0.0+6 - 1.0.0+8
 - @u-gin for chaangelog 1.0.0+9
+- @imurnane for chaangelog 1.0.1+1
