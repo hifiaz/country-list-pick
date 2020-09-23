@@ -73,12 +73,13 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: CountryListPick(
+            appBarBackgroundColor: Colors.amber,
             isShowFlag: true,
             isShowTitle: true,
             isShowCode: true,
             isDownIcon: true,
             initialSelection: '+62',
-            backgroundColor:  Colors.transparent,
+            showEnglishName: true,
             onChanged: (CountryCode code) {
               print(code.name);
               print(code.code);

@@ -25,9 +25,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: CountryListPick(
+            appBarBackgroundColor: Colors.amber,
             isShowFlag: true,
             isShowTitle: true,
-            isShowCode: false,
+            isShowCode: true,
             isDownIcon: true,
             initialSelection: '+62',
             showEnglishName: true,
