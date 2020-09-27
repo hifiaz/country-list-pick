@@ -2,16 +2,14 @@ import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/material.dart';
 
 class SelectionList extends StatefulWidget {
-  SelectionList(
-    this.elements,
-    this.initialSelection, {
-    Key key,
-    this.appBarBackgroundColor,
-  }) : super(key: key);
+  SelectionList(this.elements, this.initialSelection,
+      {Key key, this.appBarBackgroundColor, this.textStyle})
+      : super(key: key);
 
   final Color appBarBackgroundColor;
   final List elements;
   final CountryCode initialSelection;
+  final TextStyle textStyle;
 
   @override
   _SelectionListState createState() => _SelectionListState();
@@ -84,7 +82,10 @@ class _SelectionListState extends State<SelectionList> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: widget.appBarBackgroundColor,
-        title: Text("Select Country"),
+        title: Text(
+          "Select Country",
+          style: widget.textStyle,
+        ),
         centerTitle: true,
       ),
       body: Container(
@@ -100,7 +101,7 @@ class _SelectionListState extends State<SelectionList> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text('SEARCH'),
+                    child: Text('SEARCH', style: widget.textStyle),
                   ),
                   Container(
                     color: Colors.white,
@@ -121,7 +122,7 @@ class _SelectionListState extends State<SelectionList> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Text('LAST PICK'),
+                    child: Text('LAST PICK', style: widget.textStyle),
                   ),
                   Container(
                     color: Colors.white,
@@ -131,7 +132,8 @@ class _SelectionListState extends State<SelectionList> {
                         package: 'country_list_pick',
                         width: 32.0,
                       ),
-                      title: Text(widget.initialSelection.name),
+                      title: Text(widget.initialSelection.name,
+                          style: widget.textStyle),
                       trailing: Padding(
                         padding: const EdgeInsets.only(right: 20.0),
                         child: Icon(Icons.check, color: Colors.green),
@@ -181,7 +183,7 @@ class _SelectionListState extends State<SelectionList> {
           package: 'country_list_pick',
           width: 30.0,
         ),
-        title: Text(e.name),
+        title: Text(e.name, style: widget.textStyle),
         onTap: () {
           _sendDataBack(context, e);
         },

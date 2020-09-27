@@ -7,16 +7,17 @@ import 'package:flutter/material.dart';
 export 'support/code_country.dart';
 
 class CountryListPick extends StatefulWidget {
-  CountryListPick({
-    this.onChanged,
-    this.isShowFlag,
-    this.isDownIcon,
-    this.isShowCode,
-    this.isShowTitle,
-    this.initialSelection,
-    this.showEnglishName,
-    this.appBarBackgroundColor,
-  });
+  CountryListPick(
+      {this.onChanged,
+      this.isShowFlag,
+      this.isDownIcon,
+      this.isShowCode,
+      this.isShowTitle,
+      this.initialSelection,
+      this.showEnglishName,
+      this.appBarBackgroundColor,
+      this.customBuilder,
+      this.textStyle});
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -25,6 +26,8 @@ class CountryListPick extends StatefulWidget {
   final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
   final Color appBarBackgroundColor;
+  final Function customBuilder;
+  final TextStyle textStyle;
 
   @override
   _CountryListPickState createState() {
@@ -62,8 +65,8 @@ class _CountryListPickState extends State<CountryListPick> {
     super.initState();
   }
 
-  void _awaitFromSelectScreen(
-      BuildContext context, Color appBarBackgroundColor) async {
+  void _awaitFromSelectScreen(BuildContext context, Color appBarBackgroundColor,
+      TextStyle textStyle) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
@@ -71,6 +74,7 @@ class _CountryListPickState extends State<CountryListPick> {
             elements,
             selectedItem,
             appBarBackgroundColor: widget.appBarBackgroundColor,
+            textStyle: widget.textStyle,
           ),
         ));
 
@@ -85,43 +89,50 @@ class _CountryListPickState extends State<CountryListPick> {
     return FlatButton(
       padding: EdgeInsets.symmetric(horizontal: 0.0),
       onPressed: () {
-        _awaitFromSelectScreen(context, widget.appBarBackgroundColor);
+        _awaitFromSelectScreen(
+            context, widget.appBarBackgroundColor, widget.textStyle);
       },
-      child: Flex(
-        direction: Axis.horizontal,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (widget.isShowFlag == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Image.asset(
-                  selectedItem.flagUri,
-                  package: 'country_list_pick',
-                  width: 32.0,
-                ),
-              ),
+      child: widget.customBuilder != null
+          ? widget.customBuilder(selectedItem)
+          : Flex(
+              direction: Axis.horizontal,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                if (widget.isShowFlag == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Image.asset(
+                        selectedItem.flagUri,
+                        package: 'country_list_pick',
+                        width: 32.0,
+                      ),
+                    ),
+                  ),
+                if (widget.isShowCode == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Text(
+                        selectedItem.toString(),
+                      ),
+                    ),
+                  ),
+                if (widget.isShowTitle == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Text(
+                        selectedItem.toCountryStringOnly(),
+                      ),
+                    ),
+                  ),
+                if (widget.isDownIcon == true)
+                  Flexible(
+                    child: Icon(Icons.keyboard_arrow_down),
+                  )
+              ],
             ),
-          if (widget.isShowCode == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(selectedItem.toString()),
-              ),
-            ),
-          if (widget.isShowTitle == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(selectedItem.toCountryStringOnly()),
-              ),
-            ),
-          if (widget.isDownIcon == true)
-            Flexible(
-              child: Icon(Icons.keyboard_arrow_down),
-            )
-        ],
-      ),
     );
   }
 }
