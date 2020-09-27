@@ -7,17 +7,17 @@ import 'package:flutter/material.dart';
 export 'support/code_country.dart';
 
 class CountryListPick extends StatefulWidget {
-  CountryListPick(
-      {this.onChanged,
-      this.isShowFlag,
-      this.isDownIcon,
-      this.isShowCode,
-      this.isShowTitle,
-      this.isShowLastPick,
-      this.initialSelection,
-      this.showEnglishName,
-      this.buttonColor,
-      this.appBarBackgroundColor,});
+  CountryListPick({
+    this.onChanged,
+    this.isShowFlag,
+    this.isDownIcon,
+    this.isShowCode,
+    this.isShowTitle,
+    this.isShowLastPick,
+    this.initialSelection,
+    this.showEnglishName,
+    this.appBarBackgroundColor,
+  });
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -26,7 +26,6 @@ class CountryListPick extends StatefulWidget {
   final String initialSelection;
   final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
-  final Color buttonColor;
   final Color appBarBackgroundColor;
 
   @override
@@ -49,7 +48,6 @@ class _CountryListPickState extends State<CountryListPick> {
   CountryCode selectedItem;
   List elements = [];
   _CountryListPickState(this.elements);
-  //Color appBarBackgroundColor = widget.appBarBackgroundColor;
 
   @override
   void initState() {
@@ -57,8 +55,8 @@ class _CountryListPickState extends State<CountryListPick> {
       selectedItem = elements.firstWhere(
           (e) =>
               (e.code.toUpperCase() == widget.initialSelection.toUpperCase()) ||
-              (e.dialCode == widget.initialSelection.toString()),
-          orElse: () => elements[0]);
+              (e.dialCode == widget.initialSelection),
+          orElse: () => elements[0] as CountryCode);
     } else {
       selectedItem = elements[0];
     }
@@ -66,18 +64,18 @@ class _CountryListPickState extends State<CountryListPick> {
     super.initState();
   }
 
-  void _awaitFromSelectScreen(BuildContext context, Color appBarBackgroundColor) async {
+  void _awaitFromSelectScreen(
+      BuildContext context, Color appBarBackgroundColor) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => SelectionList(
-              elements,
-              selectedItem,
-              appBarBackgroundColor: widget.appBarBackgroundColor,
-              isShowLastPick: widget.isShowLastPick,
+            elements,
+            selectedItem,
+            appBarBackgroundColor: widget.appBarBackgroundColor,
+            isShowLastPick: widget.isShowLastPick,
           ),
-        )
-    );
+        ));
 
     setState(() {
       selectedItem = result ?? selectedItem;
@@ -88,7 +86,6 @@ class _CountryListPickState extends State<CountryListPick> {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-      color: widget.buttonColor,
       padding: EdgeInsets.symmetric(horizontal: 0.0),
       onPressed: () {
         _awaitFromSelectScreen(context, widget.appBarBackgroundColor);

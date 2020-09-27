@@ -1,7 +1,6 @@
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/material.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -10,9 +9,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-
-
   @override
   void initState() {
     super.initState();
@@ -29,9 +25,10 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: CountryListPick(
+            appBarBackgroundColor: Colors.amber,
             isShowFlag: true,
             isShowTitle: true,
-            isShowCode: false,
+            isShowCode: true,
             isDownIcon: true,
             initialSelection: '+62',
             showEnglishName: true,

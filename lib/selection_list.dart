@@ -1,12 +1,13 @@
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/material.dart';
 
-
 class SelectionList extends StatefulWidget {
   SelectionList(
     this.elements,
     this.initialSelection, {
-    Key key, this.appBarBackgroundColor, this.isShowLastPick,
+    Key key,
+    this.appBarBackgroundColor,
+    this.isShowLastPick,
   }) : super(key: key);
 
   final Color appBarBackgroundColor;

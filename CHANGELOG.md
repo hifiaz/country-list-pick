@@ -1,3 +1,7 @@
+## 1.0.1+1
+- fixing bug initial selection
+- removing button color
+  
 ## 1.0.0+9
 - Appbar color, user can set ourself
   
