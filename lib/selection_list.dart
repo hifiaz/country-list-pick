@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:country_list_pick/country_selection_theme.dart';
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +85,7 @@ class _SelectionListState extends State<SelectionList> {
 
   @override
   Widget build(BuildContext context) {
+    widget.theme?.systemUiOverlayStyle();
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: widget.appBar,
