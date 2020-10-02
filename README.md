@@ -15,32 +15,42 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
 
 ```dart
     CountryListPick(
-        // to show or hide flag
-        isShowFlag: true,
-        // true to show  title country
-        isShowTitle: true,
-        // true to show code phone country
-        isShowCode: true,
-        // to show or hide down icon
-        isDownIcon: true,
-        // to show country in English
-        showEnglishName: true,
-        // to initial code number country
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: Text('Choisir un pays'),
+        ),
+        
+        // if you need custome picker use this
+        pickerBuilder: (context, CountryCode countryCode){
+          return Row(
+            children: [
+              Image.asset(
+                countryCode.flagUri,
+                package: 'country_list_pick',
+              ),
+              Text(countryCode.code),
+              Text(countryCode.dialCode),
+            ],
+          );
+         },
+
+        // To disable option set to false
+        theme: CountryTheme(
+          isShowFlag: true,
+          isShowTitle: true,
+          isShowCode: true,
+          isDownIcon: true,
+          showEnglishName: true,
+        ),
+        // Set default value
         initialSelection: '+62',
-        // to change button color of the widget
-        buttonColor:  Colors.transparent,
-        // to get feedback data from picker
-        onChanged: (CountryCode code) {
-            // name of country
+          onChanged: (CountryCode code) {
             print(code.name);
-            // code of country
             print(code.code);
-            // code phone of country
             print(code.dialCode);
-            // path flag of country
             print(code.flagUri);
-        },
-    ),
+          },
+        ),
 ```
 
 To call feedback or getting data from this widget, you can make function in onChanged
@@ -70,16 +80,35 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Country Code Pick'),
+          backgroundColor: Colors.amber,
         ),
         body: Center(
           child: CountryListPick(
-            appBarBackgroundColor: Colors.amber,
-            isShowFlag: true,
-            isShowTitle: true,
-            isShowCode: true,
-            isDownIcon: true,
+            appBar: AppBar(
+              backgroundColor: Colors.blue,
+              title: Text('Choisir un pays'),
+            ),
+            // if you need custome picker use this
+            // pickerBuilder: (context, CountryCode countryCode){
+            //   return Row(
+            //     children: [
+            //       Image.asset(
+            //         countryCode.flagUri,
+            //         package: 'country_list_pick',
+            //       ),
+            //       Text(countryCode.code),
+            //       Text(countryCode.dialCode),
+            //     ],
+            //   );
+            // },
+            theme: CountryTheme(
+              isShowFlag: true,
+              isShowTitle: true,
+              isShowCode: true,
+              isDownIcon: true,
+              showEnglishName: true,
+            ),
             initialSelection: '+62',
-            showEnglishName: true,
             onChanged: (CountryCode code) {
               print(code.name);
               print(code.code);
@@ -102,3 +131,4 @@ class _MyAppState extends State<MyApp> {
 - @joshuachinemezu for changelog 1.0.0+6 - 1.0.0+8
 - @u-gin for chaangelog 1.0.0+9
 - @imurnane for chaangelog 1.0.1+1
+- @jpainam for chaangelog 1.0.1+2

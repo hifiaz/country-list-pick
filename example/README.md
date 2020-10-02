@@ -27,12 +27,34 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Country Code Pick'),
+          backgroundColor: Colors.amber,
         ),
         body: Center(
           child: CountryListPick(
-            isShowFlag: true,
-            isShowTitle: true,
-            isDownIcon: true,
+            appBar: AppBar(
+              backgroundColor: Colors.blue,
+              title: Text('Choisir un pays'),
+            ),
+            // if you need custome picker use this
+            // pickerBuilder: (context, CountryCode countryCode){
+            //   return Row(
+            //     children: [
+            //       Image.asset(
+            //         countryCode.flagUri,
+            //         package: 'country_list_pick',
+            //       ),
+            //       Text(countryCode.code),
+            //       Text(countryCode.dialCode),
+            //     ],
+            //   );
+            // },
+            theme: CountryTheme(
+              isShowFlag: true,
+              isShowTitle: true,
+              isShowCode: true,
+              isDownIcon: true,
+              showEnglishName: true,
+            ),
             initialSelection: '+62',
             onChanged: (CountryCode code) {
               print(code.name);

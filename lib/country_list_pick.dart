@@ -25,11 +25,13 @@ class CountryListPick extends StatefulWidget {
   final Widget Function(BuildContext context, CountryCode countryCode)
       pickerBuilder;
   final CountryTheme theme;
-  final Widget Function(BuildContext context, CountryCode countryCode) countryBuilder;
+  final Widget Function(BuildContext context, CountryCode countryCode)
+      countryBuilder;
 
   @override
   _CountryListPickState createState() {
-    List<Map> jsonList = this.theme?.showEnglishName ?? true ? countriesEnglish : codes;
+    List<Map> jsonList =
+        this.theme?.showEnglishName ?? true ? countriesEnglish : codes;
 
     List elements = jsonList
         .map((s) => CountryCode(
@@ -63,8 +65,8 @@ class _CountryListPickState extends State<CountryListPick> {
     super.initState();
   }
 
-  void _awaitFromSelectScreen(
-      BuildContext context, PreferredSizeWidget appBar, CountryTheme theme) async {
+  void _awaitFromSelectScreen(BuildContext context, PreferredSizeWidget appBar,
+      CountryTheme theme) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
@@ -75,10 +77,9 @@ class _CountryListPickState extends State<CountryListPick> {
                 AppBar(
                   backgroundColor: Theme.of(context).appBarTheme.color,
                   title: Text("Select Country"),
-                  //centerTitle: true,
                 ),
-                theme: theme,
-                countryBuilder: widget.countryBuilder,
+            theme: theme,
+            countryBuilder: widget.countryBuilder,
           ),
         ));
 

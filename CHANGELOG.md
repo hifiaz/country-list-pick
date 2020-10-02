@@ -1,3 +1,8 @@
+## 1.0.1+2
+- Customize appBar, countryBuilder, pickerBuilder 
+- Update Readme with example
+- Remove SafeArea
+
 ## 1.0.1+1
 - fixing bug initial selection
 - removing button color

@@ -1,8 +1,6 @@
-import 'dart:io';
 
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,21 +27,22 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: CountryListPick(
             appBar: AppBar(
-              backgroundColor: Colors.blue,
+              backgroundColor: Colors.amber,
               title: Text('Choisir un pays'),
             ),
-            pickerBuilder: (context, CountryCode countryCode) {
-              return Row(
-                children: [
-                  Image.asset(
-                    countryCode.flagUri,
-                    package: 'country_list_pick',
-                  ),
-                  Text(countryCode.code),
-                  Text(countryCode.dialCode),
-                ],
-              );
-            },
+            // if you need custome picker use this
+            // pickerBuilder: (context, CountryCode countryCode) {
+            //   return Row(
+            //     children: [
+            //       Image.asset(
+            //         countryCode.flagUri,
+            //         package: 'country_list_pick',
+            //       ),
+            //       Text(countryCode.code),
+            //       Text(countryCode.dialCode),
+            //     ],
+            //   );
+            // },
             theme: CountryTheme(
               isShowFlag: true,
               isShowTitle: true,
