@@ -49,15 +49,6 @@ class _MyAppState extends State<MyApp> {
               isShowTitle: true,
               isShowCode: true,
               isDownIcon: true,
-              systemUiOverlayStyle: () =>
-                  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-                statusBarColor: Colors.white,
-                statusBarIconBrightness: Brightness.dark,
-                systemNavigationBarColor: Colors.white,
-                systemNavigationBarIconBrightness: Brightness.dark,
-                statusBarBrightness:
-                    Platform.isAndroid ? Brightness.dark : Brightness.light,
-              )),
               showEnglishName: true,
             ),
             initialSelection: '+62',

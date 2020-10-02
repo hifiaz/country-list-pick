@@ -13,10 +13,10 @@ class CountryTheme {
   final bool isDownIcon;
   final String initialSelection;
   final bool showEnglishName;
-  final void Function() systemUiOverlayStyle;
+  //final void Function() systemUiOverlayStyle;
 
   CountryTheme({
-    this.systemUiOverlayStyle,
+    //this.systemUiOverlayStyle,
     this.searchText,
     this.searchHintText,
     this.lastPickText,
