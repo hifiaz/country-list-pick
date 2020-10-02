@@ -1,34 +1,35 @@
+import 'package:country_list_pick/country_selection_theme.dart';
 import 'package:country_list_pick/selection_list.dart';
 import 'package:country_list_pick/support/code_countries_en.dart';
 import 'package:country_list_pick/support/code_country.dart';
 import 'package:country_list_pick/support/code_countrys.dart';
 import 'package:flutter/material.dart';
 
+import 'support/code_country.dart';
+
 export 'support/code_country.dart';
 
+export 'country_selection_theme.dart';
+
 class CountryListPick extends StatefulWidget {
-  CountryListPick({
-    this.onChanged,
-    this.isShowFlag,
-    this.isDownIcon,
-    this.isShowCode,
-    this.isShowTitle,
-    this.initialSelection,
-    this.showEnglishName,
-    this.appBarBackgroundColor,
-  });
-  final bool isShowTitle;
-  final bool isShowFlag;
-  final bool isShowCode;
-  final bool isDownIcon;
+  CountryListPick(
+      {this.onChanged,
+      this.initialSelection,
+      this.appBar,
+      this.pickerBuilder,
+      this.countryBuilder,
+      this.theme});
   final String initialSelection;
-  final bool showEnglishName;
   final ValueChanged<CountryCode> onChanged;
-  final Color appBarBackgroundColor;
+  final PreferredSizeWidget appBar;
+  final Widget Function(BuildContext context, CountryCode countryCode)
+      pickerBuilder;
+  final CountryTheme theme;
+  final Widget Function(BuildContext context, CountryCode countryCode) countryBuilder;
 
   @override
   _CountryListPickState createState() {
-    List<Map> jsonList = showEnglishName ? countriesEnglish : codes;
+    List<Map> jsonList = this.theme?.showEnglishName ?? true ? countriesEnglish : codes;
 
     List elements = jsonList
         .map((s) => CountryCode(
@@ -63,14 +64,21 @@ class _CountryListPickState extends State<CountryListPick> {
   }
 
   void _awaitFromSelectScreen(
-      BuildContext context, Color appBarBackgroundColor) async {
+      BuildContext context, PreferredSizeWidget appBar, CountryTheme theme) async {
     final result = await Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => SelectionList(
             elements,
             selectedItem,
-            appBarBackgroundColor: widget.appBarBackgroundColor,
+            appBar: widget.appBar ??
+                AppBar(
+                  backgroundColor: Theme.of(context).appBarTheme.color,
+                  title: Text("Select Country"),
+                  //centerTitle: true,
+                ),
+                theme: theme,
+                countryBuilder: widget.countryBuilder,
           ),
         ));
 
@@ -85,43 +93,45 @@ class _CountryListPickState extends State<CountryListPick> {
     return FlatButton(
       padding: EdgeInsets.symmetric(horizontal: 0.0),
       onPressed: () {
-        _awaitFromSelectScreen(context, widget.appBarBackgroundColor);
+        _awaitFromSelectScreen(context, widget.appBar, widget.theme);
       },
-      child: Flex(
-        direction: Axis.horizontal,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          if (widget.isShowFlag == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Image.asset(
-                  selectedItem.flagUri,
-                  package: 'country_list_pick',
-                  width: 32.0,
-                ),
-              ),
+      child: widget.pickerBuilder != null
+          ? widget.pickerBuilder(context, selectedItem)
+          : Flex(
+              direction: Axis.horizontal,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                if (widget.theme?.isShowFlag ?? true == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Image.asset(
+                        selectedItem.flagUri,
+                        package: 'country_list_pick',
+                        width: 32.0,
+                      ),
+                    ),
+                  ),
+                if (widget.theme?.isShowCode ?? true == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Text(selectedItem.toString()),
+                    ),
+                  ),
+                if (widget.theme?.isShowTitle ?? true == true)
+                  Flexible(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Text(selectedItem.toCountryStringOnly()),
+                    ),
+                  ),
+                if (widget.theme?.isDownIcon ?? true == true)
+                  Flexible(
+                    child: Icon(Icons.keyboard_arrow_down),
+                  )
+              ],
             ),
-          if (widget.isShowCode == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(selectedItem.toString()),
-              ),
-            ),
-          if (widget.isShowTitle == true)
-            Flexible(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(selectedItem.toCountryStringOnly()),
-              ),
-            ),
-          if (widget.isDownIcon == true)
-            Flexible(
-              child: Icon(Icons.keyboard_arrow_down),
-            )
-        ],
-      ),
     );
   }
 }
