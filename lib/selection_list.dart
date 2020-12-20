@@ -9,7 +9,8 @@ import 'country_list_pick.dart';
 
 class SelectionList extends StatefulWidget {
   SelectionList(this.elements, this.initialSelection,
-      {Key key, this.appBar, this.theme, this.countryBuilder})
+      {Key key, this.appBar, this.theme, this.countryBuilder,
+        this.useUiOverlay = true, this.useSafeArea = false})
       : super(key: key);
 
   final PreferredSizeWidget appBar;
@@ -17,6 +18,8 @@ class SelectionList extends StatefulWidget {
   final CountryCode initialSelection;
   final CountryTheme theme;
   final Widget Function(BuildContext context, CountryCode) countryBuilder;
+  final bool useUiOverlay;
+  final bool useSafeArea;
 
   @override
   _SelectionListState createState() => _SelectionListState();
@@ -86,16 +89,17 @@ class _SelectionListState extends State<SelectionList> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.dark,
-      systemNavigationBarColor: Colors.white,
-      systemNavigationBarIconBrightness: Brightness.dark,
-      statusBarBrightness:
-          Platform.isAndroid ? Brightness.dark : Brightness.light,
-    ));
+    if (widget.useUiOverlay)
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.white,
+        statusBarIconBrightness: Brightness.dark,
+        systemNavigationBarColor: Colors.white,
+        systemNavigationBarIconBrightness: Brightness.dark,
+        statusBarBrightness:
+            Platform.isAndroid ? Brightness.dark : Brightness.light,
+      ));
     height = MediaQuery.of(context).size.height;
-    return Scaffold(
+    Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
         color: Color(0xfff4f4f4),
@@ -196,6 +200,7 @@ class _SelectionListState extends State<SelectionList> {
         }),
       ),
     );
+    return widget.useSafeArea ? SafeArea(child: scaffold) : scaffold;
   }
 
   Widget getListCountry(CountryCode e) {
