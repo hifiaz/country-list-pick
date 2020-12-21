@@ -18,7 +18,9 @@ class CountryListPick extends StatefulWidget {
       this.appBar,
       this.pickerBuilder,
       this.countryBuilder,
-      this.theme});
+      this.theme,
+      this.useUiOverlay = true,
+      this.useSafeArea = false});
   final String initialSelection;
   final ValueChanged<CountryCode> onChanged;
   final PreferredSizeWidget appBar;
@@ -27,6 +29,8 @@ class CountryListPick extends StatefulWidget {
   final CountryTheme theme;
   final Widget Function(BuildContext context, CountryCode countryCode)
       countryBuilder;
+  final bool useUiOverlay;
+  final bool useSafeArea;
 
   @override
   _CountryListPickState createState() {
@@ -80,6 +84,8 @@ class _CountryListPickState extends State<CountryListPick> {
                 ),
             theme: theme,
             countryBuilder: widget.countryBuilder,
+            useUiOverlay: widget.useUiOverlay,
+            useSafeArea: widget.useSafeArea,
           ),
         ));
 

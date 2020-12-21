@@ -44,12 +44,16 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         ),
         // Set default value
         initialSelection: '+62',
-          onChanged: (CountryCode code) {
-            print(code.name);
-            print(code.code);
-            print(code.dialCode);
-            print(code.flagUri);
-          },
+        onChanged: (CountryCode code) {
+          print(code.name);
+          print(code.code);
+          print(code.dialCode);
+          print(code.flagUri);
+        },
+        // Whether to allow the widget to set a custom UI overlay
+        useUiOverlay: true,
+        // Whether the country list should be wrapped in a SafeArea
+        useSafeArea: false
         ),
 ```
 
