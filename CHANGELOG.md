@@ -1,3 +1,6 @@
+## 1.0.1+3
+- Option SafeArea
+  
 ## 1.0.1+2
 - Customize appBar, countryBuilder, pickerBuilder 
 - Update Readme with example

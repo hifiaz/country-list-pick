@@ -62,6 +62,10 @@ class _MyAppState extends State<MyApp> {
               print(code.dialCode);
               print(code.flagUri);
             },
+            // Whether to allow the widget to set a custom UI overlay
+            useUiOverlay: true,
+            // Whether the country list should be wrapped in a SafeArea
+            useSafeArea: false
           ),
         ),
       ),

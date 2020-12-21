@@ -59,73 +59,6 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
 
 To call feedback or getting data from this widget, you can make function in onChanged
 
-### Example
-
-```dart
-import 'package:country_list_pick/country_list_pick.dart';
-import 'package:flutter/material.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Country Code Pick'),
-          backgroundColor: Colors.amber,
-        ),
-        body: Center(
-          child: CountryListPick(
-            appBar: AppBar(
-              backgroundColor: Colors.blue,
-              title: Text('Choisir un pays'),
-            ),
-            // if you need custome picker use this
-            // pickerBuilder: (context, CountryCode countryCode){
-            //   return Row(
-            //     children: [
-            //       Image.asset(
-            //         countryCode.flagUri,
-            //         package: 'country_list_pick',
-            //       ),
-            //       Text(countryCode.code),
-            //       Text(countryCode.dialCode),
-            //     ],
-            //   );
-            // },
-            theme: CountryTheme(
-              isShowFlag: true,
-              isShowTitle: true,
-              isShowCode: true,
-              isDownIcon: true,
-              showEnglishName: true,
-            ),
-            initialSelection: '+62',
-            onChanged: (CountryCode code) {
-              print(code.name);
-              print(code.code);
-              print(code.dialCode);
-              print(code.flagUri);
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}
-```
 
 ### Special Thanks
 
@@ -136,3 +69,4 @@ class _MyAppState extends State<MyApp> {
 - @u-gin for chaangelog 1.0.0+9
 - @imurnane for chaangelog 1.0.1+1
 - @jpainam for chaangelog 1.0.1+2
+- @d00rman for chaangelog 1.0.1+3
