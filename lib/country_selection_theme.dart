@@ -9,6 +9,7 @@ class CountryTheme {
   final Color alphabetSelectedTextColor;
   final Color inputFieldBgColor;
   final Color dividerTextColor;
+  final Color bodyBgColor;
   final bool isShowTitle;
   final bool isShowFlag;
   final bool isShowCode;
@@ -27,6 +28,7 @@ class CountryTheme {
     this.alphabetSelectedTextColor,
     this.dividerTextColor,
     this.inputFieldBgColor,
+    this.bodyBgColor,
     this.isShowTitle,
     this.isShowFlag,
     this.isShowCode,
