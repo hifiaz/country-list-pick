@@ -102,7 +102,7 @@ class _SelectionListState extends State<SelectionList> {
     Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
-        color: Color(0xfff4f4f4),
+        color: widget.theme?.bodyBgColor ?? Color(0xfff4f4f4),
         child: LayoutBuilder(builder: (context, contrainsts) {
           diff = height - contrainsts.biggest.height;
           _heightscroller = (contrainsts.biggest.height) / _alphabet.length;
@@ -119,10 +119,10 @@ class _SelectionListState extends State<SelectionList> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child: Text(widget.theme?.searchText ?? 'SEARCH'),
+                          child: Text(widget.theme?.searchText ?? 'SEARCH', style: TextStyle(color: widget.theme?.dividerTextColor ?? Colors.white)),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: widget.theme?.inputFieldBgColor ?? Colors.white,
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
@@ -142,10 +142,10 @@ class _SelectionListState extends State<SelectionList> {
                         Padding(
                           padding: const EdgeInsets.all(15.0),
                           child:
-                              Text(widget.theme?.lastPickText ?? 'LAST PICK'),
+                              Text(widget.theme?.lastPickText ?? 'LAST PICK', style: TextStyle(color: widget.theme?.dividerTextColor ?? Colors.white)),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: widget.theme?.inputFieldBgColor ?? Colors.white,
                           child: Material(
                             color: Colors.transparent,
                             child: ListTile(
@@ -206,7 +206,7 @@ class _SelectionListState extends State<SelectionList> {
   Widget getListCountry(CountryCode e) {
     return Container(
       height: 50,
-      color: Colors.white,
+      color: widget.theme?.inputFieldBgColor ?? Colors.white,
       child: Material(
         color: Colors.transparent,
         child: ListTile(
