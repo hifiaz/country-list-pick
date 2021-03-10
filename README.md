@@ -44,6 +44,8 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         ),
         // Set default value
         initialSelection: '+62',
+        // or
+        // initialSelection: 'US'
         onChanged: (CountryCode code) {
           print(code.name);
           print(code.code);

@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           child: CountryListPick(
             appBar: AppBar(
               backgroundColor: Colors.amber,
-              title: Text('Choisir un pays'),
+              title: Text('Pick your country'),
             ),
             // if you need custome picker use this
             // pickerBuilder: (context, CountryCode countryCode) {
@@ -48,9 +48,11 @@ class _MyAppState extends State<MyApp> {
               isShowTitle: true,
               isShowCode: true,
               isDownIcon: true,
-              showEnglishName: true,
+              showEnglishName: false,
             ),
             initialSelection: '+62',
+            // or
+            // initialSelection: 'US'
             onChanged: (CountryCode code) {
               print(code.name);
               print(code.code);
