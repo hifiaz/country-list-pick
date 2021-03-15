@@ -21,18 +21,18 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         ),
         
         // if you need custome picker use this
-        pickerBuilder: (context, CountryCode countryCode){
-          return Row(
-            children: [
-              Image.asset(
-                countryCode.flagUri,
-                package: 'country_list_pick',
-              ),
-              Text(countryCode.code),
-              Text(countryCode.dialCode),
-            ],
-          );
-         },
+        // pickerBuilder: (context, CountryCode countryCode){
+        //   return Row(
+        //     children: [
+        //       Image.asset(
+        //         countryCode.flagUri,
+        //         package: 'country_list_pick',
+        //       ),
+        //       Text(countryCode.code),
+        //       Text(countryCode.dialCode),
+        //     ],
+        //   );
+        // },
 
         // To disable option set to false
         theme: CountryTheme(
