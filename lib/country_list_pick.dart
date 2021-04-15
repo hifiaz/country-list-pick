@@ -97,8 +97,8 @@ class _CountryListPickState extends State<CountryListPick> {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         _awaitFromSelectScreen(context, widget.appBar, widget.theme);
       },
       child: widget.pickerBuilder != null
