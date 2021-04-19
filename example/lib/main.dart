@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         body: Center(
           child: CountryListPick(
             appBar: AppBar(
-              backgroundColor: Colors.amber,
+              backgroundColor: Color(0xff009788),
               title: Text('Pick your country'),
             ),
             // if you need custome picker use this
@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
               showEnglishName: false,
             ),
             initialSelection: '+62',
+            useDarkMode: true,
             // or
             // initialSelection: 'US'
             onChanged: (CountryCode code) {

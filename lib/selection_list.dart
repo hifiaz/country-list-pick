@@ -7,14 +7,17 @@ import 'package:flutter/services.dart';
 import 'country_list_pick.dart';
 
 class SelectionList extends StatefulWidget {
-  SelectionList(this.elements, this.initialSelection,
-      {Key? key,
-      this.appBar,
-      this.theme,
-      this.countryBuilder,
-      this.useUiOverlay = true,
-      this.useSafeArea = false})
-      : super(key: key);
+  SelectionList(
+    this.elements,
+    this.initialSelection, {
+    Key? key,
+    this.appBar,
+    this.theme,
+    this.countryBuilder,
+    this.useUiOverlay = true,
+    this.useSafeArea = false,
+    this.useDarkMode = false,
+  }) : super(key: key);
 
   final PreferredSizeWidget? appBar;
   final List elements;
@@ -23,6 +26,7 @@ class SelectionList extends StatefulWidget {
   final Widget Function(BuildContext context, CountryCode)? countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
+  final bool useDarkMode;
 
   @override
   _SelectionListState createState() => _SelectionListState();
@@ -44,7 +48,6 @@ class _SelectionListState extends State<SelectionList> {
   double _offsetContainer = 0.0;
 
   bool isShow = true;
-
   @override
   void initState() {
     countries = widget.elements;
@@ -77,7 +80,7 @@ class _SelectionListState extends State<SelectionList> {
     Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
-        color: Color(0xfff4f4f4),
+        color: widget.useDarkMode ? Color(0xff1e1d2b) : Colors.white,
         child: LayoutBuilder(builder: (context, contrainsts) {
           diff = height - contrainsts.biggest.height;
           _heightscroller = (contrainsts.biggest.height) / _alphabet.length;
@@ -94,50 +97,100 @@ class _SelectionListState extends State<SelectionList> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child: Text(widget.theme?.searchText ?? 'SEARCH'),
+                          child: Text(
+                            widget.theme?.searchText ?? 'SEARCH',
+                            style: TextStyle(
+                                color: widget.useDarkMode
+                                    ? Colors.white70
+                                    : Colors.black),
+                          ),
                         ),
-                        Container(
-                          color: Colors.white,
-                          child: TextField(
-                            controller: _controller,
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              focusedBorder: InputBorder.none,
-                              enabledBorder: InputBorder.none,
-                              errorBorder: InputBorder.none,
-                              disabledBorder: InputBorder.none,
-                              contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 0, top: 0, right: 15),
-                              hintText:
-                                  widget.theme?.searchHintText ?? "Search...",
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(left: 15.0, right: 45.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: widget.useDarkMode
+                                  ? Color(0xff2f3042)
+                                  : Colors.grey.shade300,
+                              borderRadius: BorderRadius.circular(15.0),
                             ),
-                            onChanged: _filterElements,
+                            child: TextField(
+                              style: TextStyle(
+                                color: widget.useDarkMode ? Colors.white70 : Colors.black,
+                              ),
+                              controller: _controller,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                focusedBorder: InputBorder.none,
+                                enabledBorder: InputBorder.none,
+                                errorBorder: InputBorder.none,
+                                disabledBorder: InputBorder.none,
+                                contentPadding: EdgeInsets.only(
+                                    left: 15, bottom: 0, top: 0, right: 15),
+                                hintText:
+                                    widget.theme?.searchHintText ?? "Search...",
+                                hintStyle: widget.useDarkMode
+                                    ? TextStyle(color: Colors.white70)
+                                    : TextStyle(color: Colors.black),
+                              ),
+                              onChanged: _filterElements,
+                            ),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child:
-                              Text(widget.theme?.lastPickText ?? 'LAST PICK'),
+                          child: Text(
+                            widget.theme?.lastPickText ?? 'LAST PICK',
+                            style: TextStyle(
+                                color: widget.useDarkMode
+                                    ? Colors.white70
+                                    : Colors.black),
+                          ),
                         ),
-                        Container(
-                          color: Colors.white,
-                          child: Material(
-                            color: Colors.transparent,
-                            child: ListTile(
-                              leading: Image.asset(
-                                widget.initialSelection!.flagUri!,
-                                package: 'country_list_pick',
-                                width: 32.0,
-                              ),
-                              title: Text(widget.initialSelection!.name!),
-                              trailing: Padding(
-                                padding: const EdgeInsets.only(right: 20.0),
-                                child: Icon(Icons.check, color: Colors.green),
+                        Padding(
+                          padding: EdgeInsets.only(left: 15.0, right: 45.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: widget.useDarkMode
+                                  ? Color(0xff2f3042)
+                                  : Colors.grey.shade300,
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child: Material(
+                              color: Colors.transparent,
+                              child: ListTile(
+                                leading: Image.asset(
+                                  widget.initialSelection!.flagUri!,
+                                  package: 'country_list_pick',
+                                  width: 32.0,
+                                ),
+                                title: Text(
+                                  widget.initialSelection!.name!,
+                                  style: TextStyle(
+                                      color: widget.useDarkMode
+                                          ? Colors.white70
+                                          : Colors.black),
+                                ),
+                                trailing: Padding(
+                                  padding: const EdgeInsets.only(right: 20.0),
+                                  child: Icon(Icons.check,
+                                      color: Color(0xff009788)),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(height: 15),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text(
+                            widget.theme?.lastPickText ?? 'COUNTRIES',
+                            style: TextStyle(
+                                color: widget.useDarkMode
+                                    ? Colors.white70
+                                    : Colors.black),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -179,21 +232,35 @@ class _SelectionListState extends State<SelectionList> {
   }
 
   Widget getListCountry(CountryCode e) {
-    return Container(
-      height: 50,
-      color: Colors.white,
-      child: Material(
-        color: Colors.transparent,
-        child: ListTile(
-          leading: Image.asset(
-            e.flagUri!,
-            package: 'country_list_pick',
-            width: 30.0,
+    return Padding(
+      padding: EdgeInsets.only(left: 15.0, right: 45.0),
+      child: Container(
+        padding: EdgeInsets.only(bottom: 10.0),
+        height: 65,
+        decoration: BoxDecoration(
+          color: widget.useDarkMode ? Color(0xff1e1d2b) : Colors.white,
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            color:
+                widget.useDarkMode ? Color(0xff2f3042) : Colors.grey.shade300,
+            borderRadius: BorderRadius.circular(15.0),
           ),
-          title: Text(e.name!),
-          onTap: () {
-            _sendDataBack(context, e);
-          },
+          child: ListTile(
+            leading: Image.asset(
+              e.flagUri!,
+              package: 'country_list_pick',
+              width: 30.0,
+            ),
+            title: Text(
+              e.name!,
+              style: TextStyle(
+                  color: widget.useDarkMode ? Colors.white70 : Colors.black),
+            ),
+            onTap: () {
+              _sendDataBack(context, e);
+            },
+          ),
         ),
       ),
     );
@@ -219,29 +286,34 @@ class _SelectionListState extends State<SelectionList> {
             }
           });
         },
-        child: Container(
-          width: 40,
-          height: 20,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: index == posSelected
-                ? widget.theme?.alphabetSelectedBackgroundColor ?? Colors.blue
-                : Colors.transparent,
-            shape: BoxShape.circle,
-          ),
-          child: Text(
-            _alphabet[index],
-            textAlign: TextAlign.center,
-            style: (index == posSelected)
-                ? TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color:
-                        widget.theme?.alphabetSelectedTextColor ?? Colors.white)
-                : TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: widget.theme?.alphabetTextColor ?? Colors.black),
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 5.0),
+          child: Container(
+            width: 40,
+            height: 40,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: index == posSelected
+                  ? widget.theme?.alphabetSelectedBackgroundColor ??
+                      Color(0xff009788)
+                  : Colors.transparent,
+              shape: BoxShape.circle,
+            ),
+            child: Text(
+              _alphabet[index],
+              textAlign: TextAlign.center,
+              style: (index == posSelected)
+                  ? TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: widget.theme?.alphabetSelectedTextColor ??
+                          Colors.white)
+                  : TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color:
+                          widget.useDarkMode ? Colors.white54 : Colors.black),
+            ),
           ),
         ),
       ),

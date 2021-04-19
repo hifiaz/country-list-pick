@@ -1,13 +1,28 @@
-# country list pick
+# country list pick  
 
-Flutter plugin to pick country with output name, code, dialcode and flag of country
+## Flutter plugin to pick Country with Output name, code, dial code and Flag of the country
+### Updated UI
+Slight changes to the User Interface of the package with added dark mode support and fixed Nepal's search issue
+**This is a forked repository. Kudos to the package developers**
+**Original Repo** https://github.com/hifiaz/country-list-pick
+
 
 <div style="text-align:center">
-<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/screenrecord.gif" width="240"/>
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/screenrecord.gif" width="240"/>
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/screenrecord_dark.gif" width="240"/>
 </div>
-<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_01.png" width="240"/>
-<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_02.png" width="240"/>
-<img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_03.png" width="240"/>
+
+<div style="text-align:center">
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/flutter_01.png" width="240"/>
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/flutter_02.png" width="240"/>
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/flutter_03.png" width="240"/>
+</div>
+
+<div style="text-align:center">
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/flutter_01_dark.png" width="240"/>
+<img src="https://raw.githubusercontent.com/AsimBhadra/country-list-pick/master/screenshot/flutter_02_dark.png" width="240"/>
+</div>
+
 
 ## Usage
 
@@ -19,8 +34,8 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
           backgroundColor: Colors.blue,
           title: Text('Choisir un pays'),
         ),
-        
-        // if you need custome picker use this
+
+        // if you need custom picker use this
         // pickerBuilder: (context, CountryCode countryCode){
         //   return Row(
         //     children: [
@@ -55,7 +70,10 @@ To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yam
         // Whether to allow the widget to set a custom UI overlay
         useUiOverlay: true,
         // Whether the country list should be wrapped in a SafeArea
-        useSafeArea: false
+        useSafeArea: false,
+        ),
+        // Whether to use Dark mode in Country Selection Screen
+        useDarkMode: true,
         ),
 ```
 
