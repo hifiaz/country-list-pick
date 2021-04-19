@@ -1,15 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:upstream" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="468c5ca9-df20-4f55-9b95-a3a939de35ae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/screenshot/flutter_01_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/flutter_02_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/screenshot/screenrecord_dark.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/country_list_pick.iml" beforeDir="false" afterPath="$PROJECT_DIR$/country_list_pick.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/country_list_pick.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/country_list_pick.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/selection_list.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/selection_list.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/support/code_countrys.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/support/code_countrys.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/flutter_01.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshot/flutter_01.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/flutter_02.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshot/flutter_02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/flutter_03.png" beforeDir="false" afterPath="$PROJECT_DIR$/screenshot/flutter_03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screenshot/screenrecord.gif" beforeDir="false" afterPath="$PROJECT_DIR$/screenshot/screenrecord.gif" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +50,20 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hiAdWNcpb2wDc4crjEnEGOYhDm" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -44,22 +81,36 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="123" y="247" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600484644986">
-      <screen x="0" y="23" width="1920" height="1124" />
+    <state width="1088" height="222" key="GridCell.Tab.0.bottom" timestamp="1618850439927">
+      <screen x="65" y="0" width="1471" height="864" />
     </state>
-    <state x="123" y="247" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1124@0.23.1920.1124" timestamp="1600484644986" />
-    <state x="248" y="100" key="CommitChangelistDialog2" timestamp="1600488956353">
-      <screen x="0" y="23" width="1920" height="1124" />
+    <state width="1088" height="222" key="GridCell.Tab.0.bottom/65.0.1471.864@65.0.1471.864" timestamp="1618850439927" />
+    <state width="1088" height="222" key="GridCell.Tab.0.center" timestamp="1618850439926">
+      <screen x="65" y="0" width="1471" height="864" />
     </state>
-    <state x="248" y="100" key="CommitChangelistDialog2/0.23.1920.1124@0.23.1920.1124" timestamp="1600488956353" />
-    <state x="160" y="224" key="SettingsEditor" timestamp="1600484159641">
-      <screen x="0" y="23" width="1920" height="1124" />
+    <state width="1088" height="222" key="GridCell.Tab.0.center/65.0.1471.864@65.0.1471.864" timestamp="1618850439926" />
+    <state width="1088" height="222" key="GridCell.Tab.0.left" timestamp="1618850439926">
+      <screen x="65" y="0" width="1471" height="864" />
     </state>
-    <state x="160" y="224" key="SettingsEditor/0.23.1920.1124@0.23.1920.1124" timestamp="1600484159641" />
-    <state x="100" y="123" width="1117" height="924" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1600486921676">
-      <screen x="0" y="23" width="1920" height="1124" />
+    <state width="1088" height="222" key="GridCell.Tab.0.left/65.0.1471.864@65.0.1471.864" timestamp="1618850439926" />
+    <state width="1088" height="222" key="GridCell.Tab.0.right" timestamp="1618850439927">
+      <screen x="65" y="0" width="1471" height="864" />
     </state>
-    <state x="100" y="123" width="1117" height="924" key="com.android.tools.idea.avdmanager.AvdListDialog/0.23.1920.1124@0.23.1920.1124" timestamp="1600486921676" />
+    <state width="1088" height="222" key="GridCell.Tab.0.right/65.0.1471.864@65.0.1471.864" timestamp="1618850439927" />
   </component>
 </project>

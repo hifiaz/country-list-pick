@@ -65,7 +65,10 @@ class _MyAppState extends State<MyApp> {
             // Whether to allow the widget to set a custom UI overlay
             useUiOverlay: true,
             // Whether the country list should be wrapped in a SafeArea
-            useSafeArea: false
+            useSafeArea: false,
+             // Whether to use Dark mode in Country Selection Screen
+            useDarkMode: true,
+            ),
           ),
         ),
       ),
