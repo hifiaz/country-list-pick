@@ -77,7 +77,6 @@ class _SelectionListState extends State<SelectionList> {
     Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
-        color: Color(0xfff4f4f4),
         child: LayoutBuilder(builder: (context, contrainsts) {
           diff = height - contrainsts.biggest.height;
           _heightscroller = (contrainsts.biggest.height) / _alphabet.length;
@@ -97,7 +96,6 @@ class _SelectionListState extends State<SelectionList> {
                           child: Text(widget.theme?.searchText ?? 'SEARCH'),
                         ),
                         Container(
-                          color: Colors.white,
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
@@ -120,7 +118,6 @@ class _SelectionListState extends State<SelectionList> {
                               Text(widget.theme?.lastPickText ?? 'LAST PICK'),
                         ),
                         Container(
-                          color: Colors.white,
                           child: Material(
                             color: Colors.transparent,
                             child: ListTile(
@@ -181,7 +178,6 @@ class _SelectionListState extends State<SelectionList> {
   Widget getListCountry(CountryCode e) {
     return Container(
       height: 50,
-      color: Colors.white,
       child: Material(
         color: Colors.transparent,
         child: ListTile(
