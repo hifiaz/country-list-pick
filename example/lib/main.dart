@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
               backgroundColor: Colors.amber,
               title: Text('Pick your country'),
             ),
-            // if you need custome picker use this
+            // if you need custom picker use this
             // pickerBuilder: (context, CountryCode countryCode) {
             //   return Row(
             //     children: [
@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> {
               isShowCode: true,
               isDownIcon: true,
               showEnglishName: false,
+              labelColor: Colors.blueAccent,
             ),
             initialSelection: '+62',
             // or
