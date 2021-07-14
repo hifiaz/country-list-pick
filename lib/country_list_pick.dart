@@ -21,6 +21,7 @@ class CountryListPick extends StatefulWidget {
       this.theme,
       this.useUiOverlay = true,
       this.useSafeArea = false});
+
   final String? initialSelection;
   final ValueChanged<CountryCode?>? onChanged;
   final PreferredSizeWidget? appBar;
@@ -52,6 +53,7 @@ class CountryListPick extends StatefulWidget {
 class _CountryListPickState extends State<CountryListPick> {
   CountryCode? selectedItem;
   List elements = [];
+
   _CountryListPickState(this.elements);
 
   @override
@@ -59,7 +61,8 @@ class _CountryListPickState extends State<CountryListPick> {
     if (widget.initialSelection != null) {
       selectedItem = elements.firstWhere(
           (e) =>
-              (e.code.toUpperCase() == widget.initialSelection!.toUpperCase()) ||
+              (e.code.toUpperCase() ==
+                  widget.initialSelection!.toUpperCase()) ||
               (e.dialCode == widget.initialSelection),
           orElse: () => elements[0] as CountryCode);
     } else {
