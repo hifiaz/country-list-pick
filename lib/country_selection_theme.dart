@@ -13,8 +13,10 @@ class CountryTheme {
   final bool? isDownIcon;
   final String? initialSelection;
   final bool? showEnglishName;
+  final Color? labelColor;
 
   CountryTheme({
+    this.labelColor,
     this.searchText,
     this.searchHintText,
     this.lastPickText,
