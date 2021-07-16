@@ -72,3 +72,4 @@ To call feedback or getting data from this widget, you can make function in onCh
 - @imurnane for chaangelog 1.0.1+1
 - @jpainam for chaangelog 1.0.1+2
 - @d00rman for chaangelog 1.0.1+3
+- @MohammadKashaniJabbari for chaangelog 1.0.1+4
