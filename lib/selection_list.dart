@@ -13,6 +13,8 @@ class SelectionList extends StatefulWidget {
       this.theme,
       this.countryBuilder,
       this.useUiOverlay = true,
+      this.isOverlay = false,
+      this.onSuccessCallback,
       this.useSafeArea = false})
       : super(key: key);
 
@@ -23,6 +25,8 @@ class SelectionList extends StatefulWidget {
   final Widget Function(BuildContext context, CountryCode)? countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
+  final bool isOverlay;
+  final Function(CountryCode)? onSuccessCallback;
 
   @override
   _SelectionListState createState() => _SelectionListState();
@@ -57,7 +61,11 @@ class _SelectionListState extends State<SelectionList> {
   }
 
   void _sendDataBack(BuildContext context, CountryCode initialSelection) {
-    Navigator.pop(context, initialSelection);
+    if (widget.isOverlay) {
+      widget.onSuccessCallback!(initialSelection);
+    } else {
+      Navigator.pop(context, initialSelection);
+    }
   }
 
   List _alphabet =
