@@ -25,4 +25,20 @@ class CountryCode {
   String toLongString() => "$dialCode $name";
 
   String toCountryStringOnly() => '$name';
+
+  Map<String, dynamic> toJson() {
+    return {
+      "name": this.name,
+      "flagUri": this.flagUri,
+      "code": this.code,
+      "dialCode": this.dialCode,
+    };
+  }
+
+  factory CountryCode.fromJson(Map<String, dynamic> json) => CountryCode(
+        name: json['name'],
+        flagUri: json['flagUri'],
+        code: json['code'],
+        dialCode: json['dialCode'],
+      );
 }
