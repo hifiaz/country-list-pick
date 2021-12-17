@@ -20,7 +20,8 @@ class CountryListPick extends StatefulWidget {
       this.countryBuilder,
       this.theme,
       this.useUiOverlay = true,
-      this.useSafeArea = false});
+      this.useSafeArea = false,
+      this.tileColor = Colors.white});
 
   final String? initialSelection;
   final ValueChanged<CountryCode?>? onChanged;
@@ -32,6 +33,7 @@ class CountryListPick extends StatefulWidget {
       countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
+  final Color tileColor;
 
   @override
   _CountryListPickState createState() {
@@ -89,6 +91,7 @@ class _CountryListPickState extends State<CountryListPick> {
             countryBuilder: widget.countryBuilder,
             useUiOverlay: widget.useUiOverlay,
             useSafeArea: widget.useSafeArea,
+            tileColor: widget.tileColor,
           ),
         ));
 
