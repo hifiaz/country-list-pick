@@ -9,9 +9,17 @@ Flutter plugin to pick country with output name, code, dialcode and flag of coun
 <img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_02.png" width="240"/>
 <img src="https://raw.githubusercontent.com/hifiaz/country-list-pick/master/screenshot/flutter_03.png" width="240"/>
 
-## Usage
-
+## Installation
 To use this plugin, add `country_list_pick` as a [dependency in your pubspec.yaml](https://flutter.io/platform-plugins/).
+```yaml
+dependencies:
+    country_list_pick:
+        git:
+            url: https://github.com/TimothyGCY/country-list-pick.git
+        # path: 'path on your machine if repo is clone to local machine'
+```
+
+## Usage
 
 ```dart
     ThemeData theme = Theme.of(context);
