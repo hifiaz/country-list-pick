@@ -114,22 +114,22 @@ class _CountryListPickState extends State<CountryListPick> {
               direction: Axis.horizontal,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                if (widget.theme?.isShowFlag ?? true == true)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      // child: Image.asset(
-                      //   selectedItem!.flagUri!,
-                      //   package: 'country_list_pick',
-                      //   width: 32.0,
-                      // ),
-                    ),
-                  ),
+                // if (widget.theme?.isShowFlag ?? true == true)
+                //   Flexible(
+                //     child: Padding(
+                //       padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                //       // child: Image.asset(
+                //       //   selectedItem!.flagUri!,
+                //       //   package: 'country_list_pick',
+                //       //   width: 32.0,
+                //       // ),
+                //     ),
+                //   ),
                 if (widget.theme?.isShowCode ?? true == true)
                   Flexible(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(selectedItem.toString()),
+                      child: Text(selectedItem.toString(),style: TextStyle(color: Color(0xff286493)),),
                     ),
                   ),
                 // if (widget.theme?.isShowTitle ?? true == true)
