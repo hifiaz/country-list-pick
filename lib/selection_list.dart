@@ -3,8 +3,8 @@ import 'package:country_list_pick/support/code_country.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'country_list_pick.dart';
+
 
 class SelectionList extends StatefulWidget {
   SelectionList(this.elements, this.initialSelection,
@@ -92,61 +92,64 @@ class _SelectionListState extends State<SelectionList> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
-                            widget.theme?.searchText ?? 'SEARCH',
-                            style: TextStyle(
-                                color:
-                                    widget.theme?.labelColor ?? Colors.black),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.all(10.0),
+                        // //   child: Text(
+                        // //     widget.theme?.searchText ?? 'SEARCH',
+                        // //     style: TextStyle(
+                        // //         color:
+                        // //             widget.theme?.labelColor ?? Colors.black),
+                        // //   ),
+                        // ),
                         Container(
-                          color: Colors.white,
+                          color: Color(0xffF8FAFD),
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.search,color: Color(0xffB5C7D4)),
+                              hintStyle: TextStyle(fontSize: 20.0, color: Color(0xffB5C7D4)),
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               enabledBorder: InputBorder.none,
                               errorBorder: InputBorder.none,
                               disabledBorder: InputBorder.none,
                               contentPadding: EdgeInsets.only(
-                                  left: 15, bottom: 0, top: 0, right: 15),
+                                  left: 15, bottom: 0, top: 10, right: 15),
                               hintText:
                                   widget.theme?.searchHintText ?? "Search...",
                             ),
                             onChanged: _filterElements,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Text(
-                            widget.theme?.lastPickText ?? 'LAST PICK',
-                            style: TextStyle(
-                                color:
-                                    widget.theme?.labelColor ?? Colors.black),
-                          ),
-                        ),
-                        Container(
-                          color: Colors.white,
-                          child: Material(
-                            color: Colors.transparent,
-                            child: ListTile(
-                              leading: Image.asset(
-                                widget.initialSelection!.flagUri!,
-                                package: 'country_list_pick',
-                                width: 32.0,
-                              ),
-                              title: Text(widget.initialSelection!.name!),
-                              trailing: Padding(
-                                padding: const EdgeInsets.only(right: 20.0),
-                                child: Icon(Icons.check, color: Colors.green),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 15),
+                        // Padding(
+                        //   padding: const EdgeInsets.all(15.0),
+                        //   child: Text(
+                        //     widget.theme?.lastPickText ?? 'LAST PICK',
+                        //     style: TextStyle(
+                        //         color:
+                        //             widget.theme?.labelColor ?? Colors.black),
+                        //   ),
+                        // ),
+
+                        // Container(
+                        //   color: Colors.white,
+                        //   child: Material(
+                        //     color: Colors.transparent,
+                        //     // child: ListTile(
+                        //     //   // leading: Image.asset(
+                        //     //   //   widget.initialSelection!.flagUri!,
+                        //     //   //   package: 'country_list_pick',
+                        //     //   //   width: 32.0,
+                        //     //   // ),
+                        //     //   title: Text(widget.initialSelection!.name!),
+                        //     //   trailing: Padding(
+                        //     //     padding: const EdgeInsets.only(right: 20.0),
+                        //     //     child: Icon(Icons.check, color: Colors.green),
+                        //     //   ),
+                        //     // ),
+                        //   ),
+                        // ),
+                        // SizedBox(height: 15),
                       ],
                     ),
                   ),
@@ -160,25 +163,25 @@ class _SelectionListState extends State<SelectionList> {
                   )
                 ],
               ),
-              if (isShow == true)
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: GestureDetector(
-                    onVerticalDragUpdate: _onVerticalDragUpdate,
-                    onVerticalDragStart: _onVerticalDragStart,
-                    child: Container(
-                      height: 20.0 * 30,
-                      color: Colors.transparent,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: []..addAll(
-                            List.generate(_alphabet.length,
-                                (index) => _getAlphabetItem(index)),
-                          ),
-                      ),
-                    ),
-                  ),
-                ),
+              // if (isShow == true)
+              //   Align(
+              //     alignment: Alignment.centerRight,
+              //     child: GestureDetector(
+              //       // onVerticalDragUpdate: _onVerticalDragUpdate,
+              //       onVerticalDragStart: _onVerticalDragStart,
+              //       child: Container(
+              //         height: 20.0 * 30,
+              //         color: Colors.transparent,
+              //         child: Column(
+              //           mainAxisAlignment: MainAxisAlignment.center,
+              //           children: []..addAll(
+              //               List.generate(_alphabet.length,
+              //                   (index) => _getAlphabetItem(index)),
+              //             ),
+              //         ),
+              //       ),
+              //     ),
+              //   ),
             ],
           );
         }),
@@ -189,21 +192,28 @@ class _SelectionListState extends State<SelectionList> {
 
   Widget getListCountry(CountryCode e) {
     return Container(
-      height: 50,
-      color: Colors.white,
-      child: Material(
-        color: Colors.transparent,
-        child: ListTile(
-          leading: Image.asset(
-            e.flagUri!,
-            package: 'country_list_pick',
-            width: 30.0,
+      height: 58,
+      color: Color(0xffF8FAFD),
+      child: Column(
+        children: [
+          Container(height: 1,width: MediaQuery.of(context).size.width,color: Color(0xffEFEEF3),),
+          Material(
+            color: Colors.transparent,
+            child: ListTile(
+              // leading: Image.asset(
+              //   e.flagUri!,
+              //   package: 'country_list_pick',
+              //   width: 30.0,
+              // ),
+              leading: Text(e.dialCode!,style: TextStyle(color: Color(0xff286493),fontFamily: 'Roboto-Bold',fontWeight: FontWeight.bold),),
+              // : Text(e.code!),
+              title: Text(e.name!),
+              onTap: () {
+                _sendDataBack(context, e);
+              },
+            ),
           ),
-          title: Text(e.name!),
-          onTap: () {
-            _sendDataBack(context, e);
-          },
-        ),
+        ],
       ),
     );
   }
@@ -269,30 +279,30 @@ class _SelectionListState extends State<SelectionList> {
     });
   }
 
-  void _onVerticalDragUpdate(DragUpdateDetails details) {
-    setState(() {
-      if ((_offsetContainer + details.delta.dy) >= 0 &&
-          (_offsetContainer + details.delta.dy) <=
-              (_sizeheightcontainer - _heightscroller)) {
-        _offsetContainer += details.delta.dy;
-        posSelected =
-            ((_offsetContainer / _heightscroller) % _alphabet.length).round();
-        _text = _alphabet[posSelected];
-        if (_text != _oldtext) {
-          for (var i = 0; i < countries.length; i++) {
-            if (_text
-                    .toString()
-                    .compareTo(countries[i].name.toString().toUpperCase()[0]) ==
-                0) {
-              _controllerScroll!.jumpTo((i * _itemsizeheight) + 15);
-              break;
-            }
-          }
-          _oldtext = _text;
-        }
-      }
-    });
-  }
+  // void _onVerticalDragUpdate(DragUpdateDetails details) {
+  //   setState(() {
+  //     if ((_offsetContainer + details.delta.dy) >= 0 &&
+  //         (_offsetContainer + details.delta.dy) <=
+  //             (_sizeheightcontainer - _heightscroller)) {
+  //       _offsetContainer += details.delta.dy;
+  //       posSelected =
+  //           ((_offsetContainer / _heightscroller) % _alphabet.length).round();
+  //       _text = _alphabet[posSelected];
+  //       if (_text != _oldtext) {
+  //         for (var i = 0; i < countries.length; i++) {
+  //           if (_text
+  //                   .toString()
+  //                   .compareTo(countries[i].name.toString().toUpperCase()[0]) ==
+  //               0) {
+  //             _controllerScroll!.jumpTo((i * _itemsizeheight) + 15);
+  //             break;
+  //           }
+  //         }
+  //         _oldtext = _text;
+  //       }
+  //     }
+  //   });
+  // }
 
   void _onVerticalDragStart(DragStartDetails details) {
     _offsetContainer = details.globalPosition.dy - diff;

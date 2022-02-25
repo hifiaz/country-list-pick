@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:country_list_pick/country_selection_theme.dart';
 import 'package:country_list_pick/selection_list.dart';
 import 'package:country_list_pick/support/code_countries_en.dart';
@@ -78,7 +80,9 @@ class _CountryListPickState extends State<CountryListPick> {
         context,
         MaterialPageRoute(
           builder: (context) => SelectionList(
+            
             elements,
+            
             selectedItem,
             appBar: widget.appBar ??
                 AppBar(
@@ -114,11 +118,11 @@ class _CountryListPickState extends State<CountryListPick> {
                   Flexible(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Image.asset(
-                        selectedItem!.flagUri!,
-                        package: 'country_list_pick',
-                        width: 32.0,
-                      ),
+                      // child: Image.asset(
+                      //   selectedItem!.flagUri!,
+                      //   package: 'country_list_pick',
+                      //   width: 32.0,
+                      // ),
                     ),
                   ),
                 if (widget.theme?.isShowCode ?? true == true)
@@ -128,17 +132,17 @@ class _CountryListPickState extends State<CountryListPick> {
                       child: Text(selectedItem.toString()),
                     ),
                   ),
-                if (widget.theme?.isShowTitle ?? true == true)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(selectedItem!.toCountryStringOnly()),
-                    ),
-                  ),
-                if (widget.theme?.isDownIcon ?? true == true)
-                  Flexible(
-                    child: Icon(Icons.keyboard_arrow_down),
-                  )
+                // if (widget.theme?.isShowTitle ?? true == true)
+                //   Flexible(
+                //     child: Padding(
+                //       padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                //       child: Text(selectedItem!.toCountryStringOnly()),
+                //     ),
+                //   ),
+                // if (widget.theme?.isDownIcon ?? true == true)
+                //   Flexible(
+                //     child: Icon(Icons.keyboard_arrow_down),
+                //   )
               ],
             ),
     );

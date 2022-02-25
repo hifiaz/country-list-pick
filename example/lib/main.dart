@@ -34,15 +34,44 @@ class _MyAppState extends State<MyApp> {
             // pickerBuilder: (context, CountryCode countryCode) {
             //   return Row(
             //     children: [
-            //       Image.asset(
-            //         countryCode.flagUri,
-            //         package: 'country_list_pick',
-            //       ),
+            //       // Image.asset(
+            //       //   countryCode.flagUri,
+            //       //   package: 'country_list_pick',
+            //       // ),
             //       Text(countryCode.code),
             //       Text(countryCode.dialCode),
             //     ],
             //   );
             // },
+          
+//             countryBuilder: (context,CountryCode countryCode){
+//               return Row(
+//                 children: [
+//                   Padding(
+//                     padding: const EdgeInsets.only(left:24.0),
+//                     child: SizedBox(
+//                       width: 50,
+//                       height: 50,
+//                       child: Row(
+//                         children: [
+//                           // Image.asset(
+//                           //   countryCode.flagUri,
+//                           //   package: 'country_list_pick',
+//                           // ),
+//                           Text(countryCode.dialCode,style: TextStyle(color: Colors.purple),),
+//                           // SizedBox(width: 20),
+//                           // Text(countryCode.code),
+                          
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+
+// Text(countryCode.code),
+
+//                 ],
+//               );
+//             },
             theme: CountryTheme(
               isShowFlag: true,
               isShowTitle: true,

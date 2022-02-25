@@ -18,3 +18,17 @@ flutter:
 
   assets:
     - flags/
+    - assets/
+
+  fonts:
+    - family: Roboto-Bold
+      fonts:
+        - asset: assets/fonts/Roboto-Bold.ttf
+#         - asset: fonts/Schyler-Italic.ttf
+#           style: italic
+    - family: Roboto-Regular
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+
+
+
