@@ -129,7 +129,7 @@ class _CountryListPickState extends State<CountryListPick> {
                   Flexible(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(selectedItem.toString(),style: TextStyle(color: Color(0xff286493)),),
+                      child: Text(selectedItem.toString(),style: TextStyle(fontSize: 22,color: Color(0xff286493)),),
                     ),
                   ),
                 // if (widget.theme?.isShowTitle ?? true == true)
