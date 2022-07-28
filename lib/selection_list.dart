@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 
 import 'country_list_pick.dart';
 
+const Color kBackgroundColor = Color(0xFFFBFBFB);
+
 class SelectionList extends StatefulWidget {
   SelectionList(this.elements, this.initialSelection,
       {Key? key,
@@ -100,7 +102,7 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: kBackgroundColor,
                           child: TextField(
                             controller: _controller,
                             decoration: InputDecoration(
@@ -127,7 +129,7 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: kBackgroundColor,
                           child: Material(
                             color: Colors.transparent,
                             child: ListTile(
@@ -188,7 +190,7 @@ class _SelectionListState extends State<SelectionList> {
   Widget getListCountry(CountryCode e) {
     return Container(
       height: 50,
-      color: Colors.white,
+      color: kBackgroundColor,
       child: Material(
         color: Colors.transparent,
         child: ListTile(
