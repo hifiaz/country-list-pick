@@ -95,7 +95,7 @@ class _SelectionListState extends State<SelectionList> {
                           color: widget.theme?.labelColor ?? Colors.black,
                           child: TextField(
                             autofocus: true,
-                            style: TextStyle(color: widget.theme?.labelColor ?? Colors.black),
+                            style: TextStyle(color: widget.theme?.alphabetSelectedTextColor ?? Colors.black),
                             controller: _controller,
                             decoration: InputDecoration(
                               border: InputBorder.none,

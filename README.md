@@ -1,3 +1,8 @@
+##Main changes:
+
+- code_countries_en.dart: added "Select country" with "--" code to avoid false [0] selection from the map
+- theme
+
 # country list pick
 
 Flutter plugin to pick country with output name, code, dialcode and flag of country
