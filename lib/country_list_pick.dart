@@ -14,37 +14,37 @@ export 'country_selection_theme.dart';
 class CountryListPick extends StatefulWidget {
   CountryListPick(
       {this.onChanged,
-      this.initialSelection,
-      this.appBar,
-      this.pickerBuilder,
-      this.countryBuilder,
-      this.theme,
-      this.useUiOverlay = true,
-      this.useSafeArea = false});
+        this.initialSelection,
+        this.appBar,
+        this.pickerBuilder,
+        this.countryBuilder,
+        this.theme,
+        this.useUiOverlay = true,
+        this.useSafeArea = false});
 
   final String? initialSelection;
   final ValueChanged<CountryCode?>? onChanged;
   final PreferredSizeWidget? appBar;
   final Widget Function(BuildContext context, CountryCode? countryCode)?
-      pickerBuilder;
+  pickerBuilder;
   final CountryTheme? theme;
   final Widget Function(BuildContext context, CountryCode countryCode)?
-      countryBuilder;
+  countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
 
   @override
   _CountryListPickState createState() {
     List<Map> jsonList =
-        this.theme?.showEnglishName ?? true ? countriesEnglish : codes;
+    this.theme?.showEnglishName ?? true ? countriesEnglish : codes;
 
     List elements = jsonList
         .map((s) => CountryCode(
-              name: s['name'],
-              code: s['code'],
-              dialCode: s['dial_code'],
-              flagUri: 'flags/${s['code'].toLowerCase()}.png',
-            ))
+      name: s['name'],
+      code: s['code'],
+      dialCode: s['dial_code'],
+      flagUri: 'flags/${s['code'].toLowerCase()}.png',
+    ))
         .toList();
     return _CountryListPickState(elements);
   }
@@ -60,13 +60,13 @@ class _CountryListPickState extends State<CountryListPick> {
   void initState() {
     if (widget.initialSelection != null) {
       selectedItem = elements.firstWhere(
-          (e) =>
-              (e.code.toUpperCase() ==
-                  widget.initialSelection!.toUpperCase()) ||
+              (e) =>
+          (e.code.toUpperCase() ==
+              widget.initialSelection!.toUpperCase()) ||
               (e.dialCode == widget.initialSelection),
-          orElse: () => elements[0] as CountryCode);
+          orElse: () => elements.last as CountryCode);
     } else {
-      selectedItem = elements[0];
+      selectedItem = elements.last;
     }
 
     super.initState();
@@ -107,40 +107,40 @@ class _CountryListPickState extends State<CountryListPick> {
       child: widget.pickerBuilder != null
           ? widget.pickerBuilder!(context, selectedItem)
           : Flex(
-              direction: Axis.horizontal,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                if (widget.theme?.isShowFlag ?? true == true)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Image.asset(
-                        selectedItem!.flagUri!,
-                        package: 'country_list_pick',
-                        width: 32.0,
-                      ),
-                    ),
-                  ),
-                if (widget.theme?.isShowCode ?? true == true)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(selectedItem.toString()),
-                    ),
-                  ),
-                if (widget.theme?.isShowTitle ?? true == true)
-                  Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      child: Text(selectedItem!.toCountryStringOnly()),
-                    ),
-                  ),
-                if (widget.theme?.isDownIcon ?? true == true)
-                  Flexible(
-                    child: Icon(Icons.keyboard_arrow_down),
-                  )
-              ],
+        direction: Axis.horizontal,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          if (widget.theme?.isShowFlag ?? true == true)
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Image.asset(
+                  selectedItem!.flagUri!,
+                  package: 'country_list_pick',
+                  width: 32.0,
+                ),
+              ),
             ),
+          if (widget.theme?.isShowCode ?? true == true)
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(selectedItem.toString()),
+              ),
+            ),
+          if (widget.theme?.isShowTitle ?? true == true)
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                child: Text(selectedItem!.toCountryStringOnly()),
+              ),
+            ),
+          if (widget.theme?.isDownIcon ?? true == true)
+            Flexible(
+              child: Icon(Icons.keyboard_arrow_down),
+            )
+        ],
+      ),
     );
   }
 }

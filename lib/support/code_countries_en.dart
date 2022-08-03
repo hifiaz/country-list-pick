@@ -284,5 +284,6 @@ List<Map> countriesEnglish = [
   {"name": "Wallis and Futuna", "dial_code": "+681", "code": "WF"},
   {"name": "Yemen", "dial_code": "+967", "code": "YE"},
   {"name": "Zambia", "dial_code": "+260", "code": "ZM"},
-  {"name": "Zimbabwe", "dial_code": "+263", "code": "ZW"}
+  {"name": "Zimbabwe", "dial_code": "+263", "code": "ZW"},
+  {"name": "Select country", "dial_code": "--", "code": "--"}
 ];
