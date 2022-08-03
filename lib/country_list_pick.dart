@@ -64,9 +64,9 @@ class _CountryListPickState extends State<CountryListPick> {
           (e.code.toUpperCase() ==
               widget.initialSelection!.toUpperCase()) ||
               (e.dialCode == widget.initialSelection),
-          orElse: () => elements.last as CountryCode);
+          orElse: () => elements[0] as CountryCode);
     } else {
-      selectedItem = elements.last;
+      selectedItem = elements[0];
     }
 
     super.initState();

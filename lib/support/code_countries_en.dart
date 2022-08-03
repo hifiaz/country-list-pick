@@ -1,4 +1,5 @@
 List<Map> countriesEnglish = [
+  {"name": "Select country", "dial_code": "--", "code": "--"},
   {"name": "Afghanistan", "dial_code": "+93", "code": "AF"},
   {"name": "Aland Islands", "dial_code": "+358", "code": "AX"},
   {"name": "Albania", "dial_code": "+355", "code": "AL"},
@@ -284,6 +285,5 @@ List<Map> countriesEnglish = [
   {"name": "Wallis and Futuna", "dial_code": "+681", "code": "WF"},
   {"name": "Yemen", "dial_code": "+967", "code": "YE"},
   {"name": "Zambia", "dial_code": "+260", "code": "ZM"},
-  {"name": "Zimbabwe", "dial_code": "+263", "code": "ZW"},
-  {"name": "Select country", "dial_code": "--", "code": "--"}
+  {"name": "Zimbabwe", "dial_code": "+263", "code": "ZW"}
 ];
