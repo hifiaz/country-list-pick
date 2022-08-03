@@ -31,6 +31,8 @@ class MyAppState extends State<MyApp> {
             appBar: AppBar(
               backgroundColor: Colors.amber,
               title: const Text('Pick your country'),
+              titleTextStyle: TextStyle(fontFamily: 'Poppins'),
+
             ),
             // if you need custom picker use this
             // pickerBuilder: (context, CountryCode countryCode) {

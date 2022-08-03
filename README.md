@@ -1,7 +1,7 @@
 ##Main changes:
 
 - code_countries_en.dart: added "Select country" with "--" code to avoid false [0] selection from the map
-- theme
+- theme changes to work in dark and normal mode
 
 # country list pick
 

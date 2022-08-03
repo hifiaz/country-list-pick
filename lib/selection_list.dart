@@ -95,7 +95,7 @@ class _SelectionListState extends State<SelectionList> {
                           color: widget.theme?.labelColor ?? Colors.black,
                           child: TextField(
                             autofocus: true,
-                            style: TextStyle(color: widget.theme?.alphabetSelectedTextColor ?? Colors.black),
+                            style: TextStyle(color: widget.theme?.alphabetSelectedTextColor ?? Colors.black,),
                             controller: _controller,
                             decoration: InputDecoration(
                               border: InputBorder.none,
@@ -117,7 +117,7 @@ class _SelectionListState extends State<SelectionList> {
                           child: Text(
                             widget.theme?.lastPickText ?? 'LAST PICK',
                             style: TextStyle(
-                                color: widget.theme?.alphabetSelectedTextColor ?? Colors.black),
+                                color: widget.theme?.alphabetSelectedTextColor ?? Colors.black,),
                           ),
                         ),
                         Container(
@@ -132,7 +132,7 @@ class _SelectionListState extends State<SelectionList> {
                               ),
                               title: Text(widget.initialSelection!.name!,
                                 style: TextStyle(
-                                    color: widget.theme?.alphabetSelectedTextColor ?? Colors.black),),
+                                    color: widget.theme?.alphabetSelectedTextColor ?? Colors.black,),),
                               trailing: Padding(
                                 padding: const EdgeInsets.only(right: 20.0),
                                 child: Icon(Icons.check, color: widget.theme?.alphabetSelectedTextColor ?? Colors.black),
@@ -196,7 +196,7 @@ class _SelectionListState extends State<SelectionList> {
           title: Text(e.name!,
             style: TextStyle(
                 color:
-                widget.theme?.alphabetSelectedTextColor ?? Colors.black),),
+                widget.theme?.alphabetSelectedTextColor ?? Colors.black,),),
 
           onTap: () {
             _sendDataBack(context, e);
