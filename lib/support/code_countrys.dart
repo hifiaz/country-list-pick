@@ -1,5 +1,10 @@
 List<Map<String, String>> codes = [
   {
+    "name": "Select country",
+    "code": "--",
+    "dial_code": "--",
+  },
+  {
     "name": "افغانستان",
     "code": "AF",
     "dial_code": "+93",

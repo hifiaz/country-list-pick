@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="468c5ca9-df20-4f55-9b95-a3a939de35ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/country_list_pick.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/country_list_pick.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/support/code_countries_en.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/support/code_countries_en.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/support/code_countrys.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/support/code_countrys.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +29,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -62,23 +63,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="123" y="247" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600484644986">
-      <screen x="0" y="23" width="1920" height="1124" />
-    </state>
-    <state x="123" y="247" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1920.1124@0.23.1920.1124" timestamp="1600484644986" />
-    <state x="248" y="100" key="CommitChangelistDialog2" timestamp="1600488956353">
-      <screen x="0" y="23" width="1920" height="1124" />
-    </state>
-    <state x="248" y="100" key="CommitChangelistDialog2/0.23.1920.1124@0.23.1920.1124" timestamp="1600488956353" />
-    <state x="160" y="224" key="SettingsEditor" timestamp="1600484159641">
-      <screen x="0" y="23" width="1920" height="1124" />
-    </state>
-    <state x="160" y="224" key="SettingsEditor/0.23.1920.1124@0.23.1920.1124" timestamp="1600484159641" />
-    <state x="100" y="123" width="1117" height="924" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1600486921676">
-      <screen x="0" y="23" width="1920" height="1124" />
-    </state>
-    <state x="100" y="123" width="1117" height="924" key="com.android.tools.idea.avdmanager.AvdListDialog/0.23.1920.1124@0.23.1920.1124" timestamp="1600486921676" />
   </component>
 </project>

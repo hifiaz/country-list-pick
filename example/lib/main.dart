@@ -53,7 +53,7 @@ class MyAppState extends State<MyApp> {
               showEnglishName: false,
               labelColor: Colors.blueAccent,
             ),
-            initialSelection: '+62',
+            initialSelection: '--',
             // or
             // initialSelection: 'US'
             onChanged: (CountryCode code) {
