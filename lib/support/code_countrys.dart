@@ -105,6 +105,11 @@ List<Map<String, String>> codes = [
     "dial_code": "+375",
   },
   {
+    "name": "Belgique",
+    "code": "BE",
+    "dial_code": "+32",
+  },
+  {
     "name": "België",
     "code": "BE",
     "dial_code": "+32",
