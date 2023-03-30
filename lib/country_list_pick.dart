@@ -56,8 +56,19 @@ class _CountryListPickState extends State<CountryListPick> {
 
   _CountryListPickState(this.elements);
 
-  @override
+   @override
   void initState() {
+    _setCurrentItem();
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant ContactTableRow oldWidget) {
+    _setCurrentItem();
+    super.didUpdateWidget(oldWidget);
+  }
+
+  _setCurrentItem() {
     if (widget.initialSelection != null) {
       selectedItem = elements.firstWhere(
           (e) =>
@@ -68,8 +79,6 @@ class _CountryListPickState extends State<CountryListPick> {
     } else {
       selectedItem = elements[0];
     }
-
-    super.initState();
   }
 
   void _awaitFromSelectScreen(BuildContext context, PreferredSizeWidget? appBar,
