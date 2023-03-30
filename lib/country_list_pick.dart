@@ -63,7 +63,7 @@ class _CountryListPickState extends State<CountryListPick> {
   }
 
   @override
-  void didUpdateWidget(covariant ContactTableRow oldWidget) {
+  void didUpdateWidget(covariant CountryListPick oldWidget) {
     _setCurrentItem();
     super.didUpdateWidget(oldWidget);
   }
