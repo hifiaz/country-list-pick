@@ -14,6 +14,7 @@ class CountryTheme {
   final String? initialSelection;
   final bool? showEnglishName;
   final Color? labelColor;
+  final InputDecoration? searchInputDecoration;
 
   CountryTheme({
     this.labelColor,
@@ -29,5 +30,6 @@ class CountryTheme {
     this.isDownIcon,
     this.initialSelection,
     this.showEnglishName,
+    this.searchInputDecoration,
   });
 }
