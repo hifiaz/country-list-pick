@@ -75,7 +75,7 @@ class _SelectionListState extends State<SelectionList> {
     Widget scaffold = Scaffold(
       appBar: widget.appBar,
       body: Container(
-        color: Color(0xfff4f4f4),
+        color: widget.theme?.scaffoldColor ?? Color(0xfff4f4f4),
         child: LayoutBuilder(builder: (context, contrainsts) {
           diff = height - contrainsts.biggest.height;
           _heightscroller = (contrainsts.biggest.height) / _alphabet.length;
@@ -100,7 +100,8 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: widget.theme?.searchInputBackground ??
+                              Colors.white,
                           child: TextField(
                             controller: _controller,
                             decoration: widget.theme?.searchInputDecoration ??
@@ -116,6 +117,7 @@ class _SelectionListState extends State<SelectionList> {
                                       "Search...",
                                 ),
                             onChanged: _filterElements,
+                            style: widget.theme?.searchInputStyle,
                           ),
                         ),
                         Padding(
@@ -128,7 +130,8 @@ class _SelectionListState extends State<SelectionList> {
                           ),
                         ),
                         Container(
-                          color: Colors.white,
+                          color: widget.theme?.intialSelectionBackgroundColor ??
+                              Colors.white,
                           child: Material(
                             color: Colors.transparent,
                             child: ListTile(
@@ -137,7 +140,10 @@ class _SelectionListState extends State<SelectionList> {
                                 package: 'country_list_pick',
                                 width: 32.0,
                               ),
-                              title: Text(widget.initialSelection!.name!),
+                              title: Text(
+                                widget.initialSelection!.name!,
+                                style: widget.theme?.intialSelectionTextStyle,
+                              ),
                               trailing: Padding(
                                 padding: const EdgeInsets.only(right: 20.0),
                                 child: Icon(Icons.check, color: Colors.green),
@@ -189,7 +195,7 @@ class _SelectionListState extends State<SelectionList> {
   Widget getListCountry(CountryCode e) {
     return Container(
       height: 50,
-      color: Colors.white,
+      color: widget.theme?.listBackgroundColor ?? Colors.white,
       child: Material(
         color: Colors.transparent,
         child: ListTile(
@@ -198,7 +204,7 @@ class _SelectionListState extends State<SelectionList> {
             package: 'country_list_pick',
             width: 30.0,
           ),
-          title: Text(e.name!),
+          title: Text(e.name!, style: widget.theme?.listTextStyle),
           onTap: () {
             _sendDataBack(context, e);
           },
