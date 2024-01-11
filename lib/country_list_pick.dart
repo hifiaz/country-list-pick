@@ -20,7 +20,8 @@ class CountryListPick extends StatefulWidget {
       this.countryBuilder,
       this.theme,
       this.useUiOverlay = true,
-      this.useSafeArea = false});
+      this.useSafeArea = false,
+      this.rootNavigator = false});
 
   final String? initialSelection;
   final ValueChanged<CountryCode?>? onChanged;
@@ -32,6 +33,7 @@ class CountryListPick extends StatefulWidget {
       countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
+  final bool rootNavigator;
 
   @override
   _CountryListPickState createState() {
@@ -74,23 +76,23 @@ class _CountryListPickState extends State<CountryListPick> {
 
   void _awaitFromSelectScreen(BuildContext context, PreferredSizeWidget? appBar,
       CountryTheme? theme) async {
-    final result = await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SelectionList(
-            elements,
-            selectedItem,
-            appBar: widget.appBar ??
-                AppBar(
-                  backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-                  title: Text("Select Country"),
-                ),
-            theme: theme,
-            countryBuilder: widget.countryBuilder,
-            useUiOverlay: widget.useUiOverlay,
-            useSafeArea: widget.useSafeArea,
-          ),
-        ));
+    final result =
+        await Navigator.of(context, rootNavigator: widget.rootNavigator)
+            .push(MaterialPageRoute(
+      builder: (context) => SelectionList(
+        elements,
+        selectedItem,
+        appBar: widget.appBar ??
+            AppBar(
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+              title: Text("Select Country"),
+            ),
+        theme: theme,
+        countryBuilder: widget.countryBuilder,
+        useUiOverlay: widget.useUiOverlay,
+        useSafeArea: widget.useSafeArea,
+      ),
+    ));
 
     setState(() {
       selectedItem = result ?? selectedItem;
