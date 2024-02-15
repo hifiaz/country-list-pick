@@ -4,6 +4,7 @@ class CountryTheme {
   final String? searchText;
   final String? searchHintText;
   final String? lastPickText;
+  final bool? isShowAlphabet;
   final Color? alphabetSelectedBackgroundColor;
   final Color? alphabetTextColor;
   final Color? alphabetSelectedTextColor;
@@ -27,6 +28,7 @@ class CountryTheme {
       {this.labelColor,
       this.searchText,
       this.searchHintText,
+      this.isShowAlphabet,
       this.lastPickText,
       this.alphabetSelectedBackgroundColor,
       this.alphabetTextColor,

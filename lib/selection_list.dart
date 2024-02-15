@@ -41,8 +41,6 @@ class _SelectionListState extends State<SelectionList> {
   var _itemsizeheight = 50.0;
   double _offsetContainer = 0.0;
 
-  bool isShow = true;
-
   @override
   void initState() {
     countries = widget.elements;
@@ -165,7 +163,7 @@ class _SelectionListState extends State<SelectionList> {
                   )
                 ],
               ),
-              if (isShow == true)
+              if (widget.theme?.isShowAlphabet ?? true == true)
                 Align(
                   alignment: Alignment.centerRight,
                   child: GestureDetector(
