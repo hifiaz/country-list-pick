@@ -75,6 +75,7 @@ List<Map> countriesEnglish = [
   {"name": "Eritrea", "dial_code": "+291", "code": "ER"},
   {"name": "Estonia", "dial_code": "+372", "code": "EE"},
   {"name": "Ethiopia", "dial_code": "+251", "code": "ET"},
+  {"name": "Europe", "dial_code": "+49", "code": "EU"},
   {"name": "Falkland Islands (Malvinas)", "dial_code": "+500", "code": "FK"},
   {"name": "Faroe Islands", "dial_code": "+298", "code": "FO"},
   {"name": "Fiji", "dial_code": "+679", "code": "FJ"},

@@ -12,17 +12,21 @@ export 'support/code_country.dart';
 export 'country_selection_theme.dart';
 
 class CountryListPick extends StatefulWidget {
-  CountryListPick(
-      {this.onChanged,
-      this.initialSelection,
-      this.appBar,
-      this.pickerBuilder,
-      this.countryBuilder,
-      this.theme,
-      this.useUiOverlay = true,
-      this.useSafeArea = false});
+  CountryListPick({
+    this.onChanged,
+    this.initialSelection,
+    this.selectedItem,
+    this.appBar,
+    this.pickerBuilder,
+    this.countryBuilder,
+    this.theme,
+    this.useUiOverlay = true,
+    this.useSafeArea = false,
+    this.rootNavigator = false,
+  });
 
   final String? initialSelection;
+  final String? selectedItem;
   final ValueChanged<CountryCode?>? onChanged;
   final PreferredSizeWidget? appBar;
   final Widget Function(BuildContext context, CountryCode? countryCode)?
@@ -32,6 +36,7 @@ class CountryListPick extends StatefulWidget {
       countryBuilder;
   final bool useUiOverlay;
   final bool useSafeArea;
+  final bool rootNavigator;
 
   @override
   _CountryListPickState createState() {
@@ -58,39 +63,59 @@ class _CountryListPickState extends State<CountryListPick> {
 
   @override
   void initState() {
-    if (widget.initialSelection != null) {
+    _updateSelectedItem();
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(CountryListPick oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.selectedItem != oldWidget.selectedItem) {
+      _updateSelectedItem();
+    }
+  }
+
+  void _updateSelectedItem() {
+    if (widget.selectedItem != null) {
       selectedItem = elements.firstWhere(
-          (e) =>
-              (e.code.toUpperCase() ==
-                  widget.initialSelection!.toUpperCase()) ||
-              (e.dialCode == widget.initialSelection),
-          orElse: () => elements[0] as CountryCode);
+        (e) => 
+          (e.code.toUpperCase() == widget.selectedItem!.toUpperCase()) ||
+          (e.dialCode == widget.selectedItem),
+        orElse: () => elements[0] as CountryCode,
+      );
+    }
+
+    else if (widget.initialSelection != null) {
+      selectedItem = elements.firstWhere(
+        (e) =>
+          (e.code.toUpperCase() == widget.initialSelection!.toUpperCase()) ||
+          (e.dialCode == widget.initialSelection),
+        orElse: () => elements[0] as CountryCode,
+      );
     } else {
       selectedItem = elements[0];
     }
-
-    super.initState();
   }
 
   void _awaitFromSelectScreen(BuildContext context, PreferredSizeWidget? appBar,
       CountryTheme? theme) async {
-    final result = await Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SelectionList(
-            elements,
-            selectedItem,
-            appBar: widget.appBar ??
-                AppBar(
-                  backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-                  title: Text("Select Country"),
-                ),
-            theme: theme,
-            countryBuilder: widget.countryBuilder,
-            useUiOverlay: widget.useUiOverlay,
-            useSafeArea: widget.useSafeArea,
-          ),
-        ));
+    final result =
+        await Navigator.of(context, rootNavigator: widget.rootNavigator)
+            .push(MaterialPageRoute(
+      builder: (context) => SelectionList(
+        elements,
+        selectedItem,
+        appBar: widget.appBar ??
+            AppBar(
+              backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+              title: Text("Select Country"),
+            ),
+        theme: theme,
+        countryBuilder: widget.countryBuilder,
+        useUiOverlay: widget.useUiOverlay,
+        useSafeArea: widget.useSafeArea,
+      ),
+    ));
 
     setState(() {
       selectedItem = result ?? selectedItem;

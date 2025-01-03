@@ -335,6 +335,11 @@ List<Map<String, String>> codes = [
     "dial_code": "+291",
   },
   {
+    "name": "Europe",
+    "code": "EU",
+    "dial_code": "+49",
+  },
+  {
     "name": "Eesti",
     "code": "EE",
     "dial_code": "+372",
