@@ -6,13 +6,12 @@ import 'country_list_pick.dart';
 
 class SelectionList extends StatefulWidget {
   SelectionList(this.elements, this.initialSelection,
-      {Key? key,
+      {super.key,
       this.appBar,
       this.theme,
       this.countryBuilder,
       this.useUiOverlay = true,
-      this.useSafeArea = false})
-      : super(key: key);
+      this.useSafeArea = false});
 
   final PreferredSizeWidget? appBar;
   final List elements;
@@ -169,10 +168,9 @@ class _SelectionListState extends State<SelectionList> {
                       color: Colors.transparent,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: []..addAll(
-                            List.generate(_alphabet.length,
-                                (index) => _getAlphabetItem(index)),
-                          ),
+                        children: List.generate(
+                            _alphabet.length,
+                            (index) => _getAlphabetItem(index)),
                       ),
                     ),
                   ),
