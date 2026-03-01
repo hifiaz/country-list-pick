@@ -5,15 +5,14 @@ import 'package:country_list_pick/support/code_country.dart';
 import 'package:country_list_pick/support/code_countrys.dart';
 import 'package:flutter/material.dart';
 
-import 'support/code_country.dart';
-
 export 'support/code_country.dart';
 
 export 'country_selection_theme.dart';
 
 class CountryListPick extends StatefulWidget {
   CountryListPick(
-      {this.onChanged,
+      {super.key,
+      this.onChanged,
       this.initialSelection,
       this.appBar,
       this.pickerBuilder,
@@ -92,7 +91,7 @@ class _CountryListPickState extends State<CountryListPick> {
             appBar: widget.appBar ??
                 AppBar(
                   backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-                  title: Text("Select Country"),
+                  title: const Text("Select Country"),
                 ),
             theme: theme,
             countryBuilder: widget.countryBuilder,
@@ -101,6 +100,7 @@ class _CountryListPickState extends State<CountryListPick> {
           ),
         ));
 
+    if (!mounted) return;
     setState(() {
       selectedItem = result ?? selectedItem;
       widget.onChanged!(result ?? selectedItem);
